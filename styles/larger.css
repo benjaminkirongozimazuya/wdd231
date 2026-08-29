@@ -1,0 +1,51 @@
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        position: static;
+        width: auto;
+        background: transparent;
+        flex-direction: row;
+    }
+
+    .navigation a {
+        padding: 0.5rem 1rem;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    main h1 {
+        grid-column: span 2;
+    }
+
+    .about-me {
+        grid-column: 1 / 2;
+    }
+
+    .student-photo {
+        grid-column: 2 / 3;
+    }
+
+    .certificate-courses {
+        grid-column: span 2;
+    }
+
+    #course-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}

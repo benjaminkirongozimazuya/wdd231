@@ -3,27 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 231 - Responsive Header Assignment</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/script.js" defer></script>
+    <title>WDD 231 - Course Home Page</title>
+    <meta name="description" content="WDD 231 Course Home Page for Web and Computer Programming certificate.">
+    <meta name="author" content="Your Name">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/courses.js" defer></script>
 </head>
 <body>
     <header>
-        <img src="images/logo.svg" alt="site logo" width="1" height="1">
-        <span class="site-name">Benjamin K. Mazuya</span>
-        <button id="nav-button" class="hamburger" aria-label="navigation"></button>
-        <nav class="navigation">
-            <ul>
+        <div class="logo-box">
+            <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="currentColor"/>
+            </svg>
+            <span>Your Name</span>
+        </div>
+        <button id="menu" aria-label="Open Navigation Menu"></button>
+        <nav>
+            <ul class="navigation">
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Chamber</a></li>
+                <li><a href="#">Final</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <h1>Welcome to My Website</h1>
-        <p>This layout features a responsive CSS grid header and a mobile toggle menu.</p>
+        <h1>Home</h1>
+        <section class="card about-me">
+            <h2>About Me</h2>
+            <p>Massa facilisis per purus si imperdiet curae amet. Et fames lorem mi phasellus congue nascetur enim consectetur sociosqu natoque risus. Odio vehicula libero nisl viverra augue commodo pretium vivamus at duis magna. Quam fringilla convallis ridiculus malesuada accumsan potenti magnis volutpat nulla ipsum. Dui maecenas et praesent class fringilla.</p>
+        </section>
+        
+        <section class="card student-photo">
+            <h2>Student Photo</h2>
+            <img src="images/student.webp" alt="Student Photo" width="200" height="200" loading="lazy">
+        </section>
+
+        <section class="card certificate-courses">
+            <h2>Web Certificate Courses</h2>
+            <div class="filter-buttons">
+                <button id="all">All</button>
+                <button id="cse">CSE</button>
+                <button id="wdd">WDD</button>
+            </div>
+            <div id="course-container"></div>
+            <p id="course-total"></p>
+        </section>
     </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+        </div>
+        <p>&copy; <span id="currentyear"></span> • Benjamin K. Mazuya • Lualaba, D.R.CONGO</p>
+        <p id="lastModified"></p>
+    </footer>
 </body>
 </html>

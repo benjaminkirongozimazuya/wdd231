@@ -1,0 +1,152 @@
+:root {
+    --primary-bg: #2b3a42;
+    --card-bg: #e2d7c5;
+    --completed-bg: #b5c99a;
+    --text-color: #333;
+    --accent-color: #d96b43;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--primary-bg);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#menu {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#menu::before {
+    content: "≡";
+}
+
+#menu.open::before {
+    content: "X";
+}
+
+.navigation {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary-bg);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+}
+
+.navigation.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    text-align: center;
+}
+
+.navigation a:hover, .navigation a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+main {
+    padding: 1rem;
+}
+
+.card {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.card h2 {
+    background-color: var(--primary-bg);
+    color: #fff;
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#course-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.course-card {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.course-card.completed {
+    background-color: var(--completed-bg);
+}
+
+footer {
+    background-color: #8fa394;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
