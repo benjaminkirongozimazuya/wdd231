@@ -54,16 +54,19 @@ header img {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* Assurez-vous d'avoir une taille visible */
     justify-self: end;
 }
 
+/* On s'assure que le contenu s'affiche proprement */
 .hamburger::before {
     content: "\2630"; /* Hamburger entity */
+    font-family: sans-serif; /* Force une police standard */
 }
 
 .hamburger.show::before {
     content: "\00D7"; /* Close entity */
+    font-family: sans-serif;
 }
 
 .navigation {
