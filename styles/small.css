@@ -3,7 +3,7 @@
     --card-bg: #e2d7c5;
     --completed-bg: #b5c99a;
     --text-color: #333;
-    --accent-color: #d96b43;
+    --accent-color: #b84a21;
 }
 
 body {
@@ -133,7 +133,7 @@ main {
 
 footer {
     background-color: #8fa394;
-    color: #fff;
+    color: #333;
     text-align: center;
     padding: 1.5rem 1rem;
 }
