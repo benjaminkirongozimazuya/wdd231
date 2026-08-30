@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory | Kolwezi Chamber of Commerce</title>
+    <meta name="description" content="Chamber of Commerce directory page showcasing local member businesses.">
+    <meta name="author" content="Benjamin Kirongozi Mazuya">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Directory | Kolwezi Chamber of Commerce">
+    <meta property="og:description" content="Explore local businesses and member organizations.">
+    <meta property="og:image" content="https://example.com/images/hero.webp">
+    <meta property="og:url" content="https://example.com/chamber/directory.html">
+
+    <link rel="icon" href="images/logo.svg">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/directory.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-box">
+            <img src="images/logo.svg" alt="Chamber Logo">
+            <span>Kolwezi Chamber of Commerce</span>
+        </div>
+        <div class="header-right">
+            <button id="dark-mode" aria-label="Toggle Dark Mode">🌓</button>
+            <button id="menu" aria-label="Toggle Navigation Menu"></button>
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Directory</h1>
+        
+        <div class="view-toggle">
+            <button id="grid" class="active">Grid</button>
+            <button id="list">List</button>
+        </div>
+
+        <section id="cards" class="grid">
+            <!-- Dynamic Cards Loaded via JS -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-col">
+            <p><strong>Kolwezi Chamber of Commerce</strong></p>
+            <p>48, Av. Kalenga, Q/Kamanyola</p>
+            <p>Kolwezi, Lualaba 999</p>
+            <p>info@kolwezicc.org</p>
+            <p>(243) 555-2300</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><img src="images/social.png" alt="YouTube"></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <div class="footer-col">
+            <p>WDD231 Class Project</p>
+            <p>Benjamin Kirongozi Mazuya</p>
+            <p>&copy; <span id="currentyear"></span> Kolwezi Chamber of Commerce</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+</html>

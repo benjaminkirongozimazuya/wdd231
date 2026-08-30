@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Katanga Industrial Hub",
+    "tagline": "Pyrometallurgical Engineering",
+    "email": "info@katangahub.com",
+    "phone": "800-555-1234",
+    "website": "mybusiness.com",
+    "image": "hub.webp",
+    "membership": 3
+  },
+  {
+    "name": "Lualaba Tech Solutions",
+    "tagline": "Software & IT Support",
+    "email": "info@lualabatech.com",
+    "phone": "800-555-5678",
+    "website": "mybusiness.com",
+    "image": "tech.webp",
+    "membership": 2
+  },
+  {
+    "name": "Kamanyola Agro-Business",
+    "tagline": "Sustainable Agriculture",
+    "email": "info@kamanyolaagro.com",
+    "phone": "800-555-9012",
+    "website": "mybusiness.com",
+    "image": "agro.webp",
+    "membership": 1
+  },
+  {
+    "name": "Zambezi Logistics SARL",
+    "tagline": "Supply Chain Management",
+    "email": "info@zambezilog.com",
+    "phone": "800-555-3456",
+    "website": "mybusiness.com",
+    "image": "logistics.webp",
+    "membership": 3
+  },
+  {
+    "name": "Pépinière Bookstore",
+    "tagline": "Educational Literature",
+    "email": "info@pepiniere.com",
+    "phone": "800-555-7890",
+    "website": "mybusiness.com",
+    "image": "bookstore.webp",
+    "membership": 1
+  },
+  {
+    "name": "Swahili Arts & Crafts",
+    "tagline": "Cultural Artifacts",
+    "email": "info@swahiliarts.com",
+    "phone": "800-555-2468",
+    "website": "mybusiness.com",
+    "image": "arts.webp",
+    "membership": 2
+  },
+  {
+    "name": "Kolwezi Energy Corp",
+    "tagline": "Renewable Power Solutions",
+    "email": "info@kolwezienergy.com",
+    "phone": "800-555-1357",
+    "website": "mybusiness.com",
+    "image": "energy.webp",
+    "membership": 3
+  }
+]
