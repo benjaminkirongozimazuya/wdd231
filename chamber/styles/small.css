@@ -1,3 +1,4 @@
+/* Updated styles/small.css to fix Google Fonts and Contrast Issues */
 :root {
     --bg-color: #e5e5e5;
     --card-bg: #d4d4d4;
@@ -7,11 +8,17 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
+}
+
+/* Fixed contrast issue on hover/active nav links by using a solid/darker contrasting background tint */
+nav ul li a.active, nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 header {
@@ -80,10 +87,6 @@ nav ul li a {
     text-align: center;
 }
 
-nav ul li a.active, nav ul li a:hover {
-    background-color: rgba(0,0,0,0.05);
-}
-
 main {
     padding: 1rem;
     max-width: 1200px;
@@ -114,7 +117,6 @@ h1 {
     background-color: #999;
 }
 
-/* Grid View Styles matching Wireframe */
 .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -165,7 +167,6 @@ h1 {
     font-size: 0.85rem;
 }
 
-/* List View Layout Styles */
 .grid.list {
     display: flex;
     flex-direction: column;
@@ -195,7 +196,6 @@ h1 {
     display: none;
 }
 
-/* Footer Wireframe Match */
 footer {
     background-color: var(--card-bg);
     border-top: 1px solid #aaa;
