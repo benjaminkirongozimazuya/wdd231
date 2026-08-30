@@ -15,10 +15,10 @@ body {
     padding: 0;
 }
 
-/* Fixed contrast issue on hover/active nav links by using a solid/darker contrasting background tint */
+/* Updated nav link hover and active state with solid background and high contrast text */
 nav ul li a.active, nav ul li a:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #000000;
+    background-color: #333333;
+    color: #ffffff;
 }
 
 header {
