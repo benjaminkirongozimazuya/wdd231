@@ -160,6 +160,7 @@ h1 {
     height: 80px;
     border: 1px dashed #555;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .card-details p {
