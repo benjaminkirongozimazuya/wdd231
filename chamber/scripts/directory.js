@@ -72,3 +72,11 @@ listButton.addEventListener("click", () => {
 // Footer Dates
 document.getElementById("currentyear").textContent = new Date().getFullYear();
 document.getElementById("lastModified").textContent = `Last Modification: ${document.lastModified}`;
+
+// Toggle Dark Mode
+const modeButton = document.querySelector('#dark-mode');
+const body = document.querySelector('body');
+
+modeButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+});
