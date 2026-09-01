@@ -25,9 +25,12 @@ getMembersData();
 
 const displayMembers = (members) => {
     cardsContainer.innerHTML = "";
-    members.forEach((member) => {
+    members.forEach((member, index) => {
         let card = document.createElement("div");
         card.classList.add("member-card");
+
+        // Optimisation LCP : charge la première image immédiatement (eager), les autres en différé (lazy)
+        const imageLoading = index === 0 ? "eager" : "lazy";
 
         card.innerHTML = `
             <div class="card-header">
@@ -35,7 +38,7 @@ const displayMembers = (members) => {
                 <span>${member.tagline}</span>
             </div>
             <div class="card-body">
-                <img src="images/${member.image}" alt="${member.name}" loading="lazy">
+                <img src="images/${member.image}" alt="${member.name}" loading="${imageLoading}">
                 <div class="card-details">
                     <p><strong>EMAIL:</strong> ${member.email}</p>
                     <p><strong>PHONE:</strong> ${member.phone}</p>
