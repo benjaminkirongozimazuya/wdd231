@@ -134,15 +134,7 @@ h1 {
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    contain: layout paint; /* Ajoutez cette ligne pour isoler le rendu et stabiliser la mise en page */
-}
-
-.member-card {
-    background-color: var(--card-bg);
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    contain: layout paint;
 }
 
 .card-header {
