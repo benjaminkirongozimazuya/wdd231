@@ -32,10 +32,11 @@ const displayMembers = (members) => {
         // Optimisation LCP : charge la première image immédiatement (eager), les autres en différé (lazy)
         const imageLoading = index === 0 ? "eager" : "lazy";
 
+        // Dans la fonction displayMembers, remplacez <h3> par <h2>
         card.innerHTML = `
             <div class="card-header">
-                <h3>${member.name}</h3>
-                <span>${member.tagline}</span>
+               <h2>${member.name}</h2>
+               <span>${member.tagline}</span>
             </div>
             <div class="card-body">
                 <img src="images/${member.image}" alt="${member.name}" loading="${imageLoading}">
