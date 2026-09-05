@@ -1,4 +1,4 @@
-// Toggle Navigation Menu
+// --- 1. TOGGLE NAVIGATION MENU ---
 const hamButton = document.querySelector('#menu');
 const navigation = document.querySelector('.navigation');
 
@@ -7,11 +7,11 @@ hamButton.addEventListener('click', () => {
     hamButton.classList.toggle('open');
 });
 
-// Footer Dates
+// --- 2. FOOTER DATES ---
 document.getElementById("currentyear").textContent = new Date().getFullYear();
 document.getElementById("lastModified").textContent = `Last Modification: ${document.lastModified}`;
 
-// Toggle Dark Mode
+// --- 3. TOGGLE DARK MODE ---
 const modeButton = document.querySelector('#dark-mode');
 const body = document.querySelector('body');
 
@@ -19,23 +19,25 @@ modeButton.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
 });
 
-// OpenWeatherMap API Integration (Kolwezi Coordinates: Lat -10.7148, Lon 25.4667)
-const apiKey = "YOUR_OPENWEATHER_API_KEY"; // Remplacez par votre clé API OpenWeatherMap
+// --- 4. OPENWEATHERMAP API INTEGRATION ---
+const apiKey = "245e0b9749af7d6053b410eea9f5d10c";
 const lat = -10.7148;
 const lon = 25.4667;
-const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
-async function apiFetch() {
+const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+async function fetchCurrentWeather() {
     try {
         const response = await fetch(currentWeatherUrl);
         if (response.ok) {
             const data = await response.json();
             displayCurrentWeather(data);
         } else {
-            throw Error(await response.text());
+            console.error("Erreur météo actuelle :", await response.text());
         }
     } catch (error) {
-        console.error("Error fetching weather:", error);
+        console.error("Fetch error (weather):", error);
     }
 }
 
@@ -45,6 +47,7 @@ function displayCurrentWeather(data) {
     const iconElement = document.querySelector('#weather-icon');
 
     tempElement.textContent = Math.round(data.main.temp);
+    
     const desc = data.weather[0].description;
     descElement.textContent = desc.charAt(0).toUpperCase() + desc.slice(1);
     
@@ -53,27 +56,63 @@ function displayCurrentWeather(data) {
     iconElement.setAttribute('alt', desc);
 }
 
-apiFetch();
+async function fetchForecast() {
+    try {
+        const response = await fetch(forecastUrl);
+        if (response.ok) {
+            const data = await response.json();
+            displayForecast(data);
+        } else {
+            console.error("Erreur prévisions :", await response.text());
+        }
+    } catch (error) {
+        console.error("Fetch error (forecast):", error);
+    }
+}
 
-// Fetch Member Spotlights (Gold = 3, Silver = 2)
-const membersUrl = "data/members.json";
+function displayForecast(data) {
+    const forecastContainer = document.querySelector('#forecast-container');
+    forecastContainer.innerHTML = ''; 
+
+    const threeDayForecast = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
+
+    threeDayForecast.forEach(day => {
+        const date = new Date(day.dt_txt);
+        const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(date);
+        const temp = Math.round(day.main.temp);
+
+        const forecastItem = document.createElement('p');
+        forecastItem.innerHTML = `<strong>${dayName}:</strong> ${temp}&deg;C`;
+        forecastContainer.appendChild(forecastItem);
+    });
+}
+
+fetchCurrentWeather();
+fetchForecast();
+
+// --- 5. MEMBER SPOTLIGHTS ---
+const membersUrl = "data/members.json"; 
 const spotlightsContainer = document.querySelector("#spotlights");
 
 async function getSpotlights() {
     try {
         const response = await fetch(membersUrl);
-        const data = await response.json();
-        displaySpotlights(data);
+        if (response.ok) {
+            const data = await response.json();
+            displaySpotlights(data);
+        } else {
+            console.error("Erreur chargement JSON members");
+        }
     } catch (error) {
-        console.error("Error loading spotlights:", error);
+        console.error("Fetch error (spotlights):", error);
     }
 }
 
 function displaySpotlights(members) {
-    // Filtrer uniquement les membres de niveau 2 (Silver) ou 3 (Gold)
+    // Filtrer les membres de niveau 2 (Silver) ou 3 (Gold)
     const filteredMembers = members.filter(member => member.membership >= 2);
     
-    // Mélanger aléatoirement et en prendre 2 ou 3
+    // Mélanger aléatoirement et en prendre 3 max
     const shuffled = filteredMembers.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 3);
 
@@ -90,7 +129,7 @@ function displaySpotlights(members) {
             <img src="images/${member.image}" alt="${member.name} logo" loading="lazy">
             <p><strong>EMAIL:</strong> ${member.email}</p>
             <p><strong>PHONE:</strong> ${member.phone}</p>
-            <p><strong>URL:</strong> <a href="#" target="_blank">${member.website}</a></p>
+            <p><strong>URL:</strong> <a href="https://${member.website}" target="_blank">${member.website}</a></p>
             <span class="badge ${member.membership === 3 ? 'gold' : 'silver'}">${levelText}</span>
         `;
         spotlightsContainer.appendChild(card);

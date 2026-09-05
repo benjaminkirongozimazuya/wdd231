@@ -389,3 +389,35 @@ footer {
     background-color: #c0c0c0;
     color: #000;
 }
+
+/* Styles pour la carte des événements (Events Card) */
+.events-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.events-card li {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.events-card li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.events-card li strong {
+    display: block;
+    font-size: 1.05rem;
+    color: #1a365d; /* Ajustez selon la couleur principale de votre charte graphique */
+    margin-bottom: 0.25rem;
+}
+
+.events-card li p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
