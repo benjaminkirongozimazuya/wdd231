@@ -124,14 +124,14 @@ function displaySpotlights(members) {
         let levelText = member.membership === 3 ? "Gold Member" : "Silver Member";
 
         card.innerHTML = `
-            <h3>${member.name}</h3>
-            <p class="tagline"><em>${member.tagline}</em></p>
-            <img src="images/${member.image}" alt="${member.name} logo" loading="lazy" width="100" height="100">
-            <p><strong>EMAIL:</strong> ${member.email}</p>
-            <p><strong>PHONE:</strong> ${member.phone}</p>
-            <p><strong>URL:</strong> <a href="https://${member.website}" target="_blank">${member.website}</a></p>
-            <span class="badge ${member.membership === 3 ? 'gold' : 'silver'}">${levelText}</span>
-        `;
+    <h3>${member.name}</h3>
+    <p class="tagline"><em>${member.tagline}</em></p>
+    <img src="images/${member.image}" alt="${member.name} logo" loading="lazy" width="80" height="80">
+    <p><strong>EMAIL:</strong> ${member.email}</p>
+    <p><strong>PHONE:</strong> ${member.phone}</p>
+    <p><strong>URL:</strong> <a href="https://${member.website}" target="_blank">${member.website}</a></p>
+    <span class="badge ${member.membership === 3 ? 'gold' : 'silver'}">${levelText}</span>
+`;
         spotlightsContainer.appendChild(card);
     });
 }
