@@ -236,3 +236,156 @@ footer {
     width: 32px;
     height: 32px;
 }
+
+/* Hero Section & CTA */
+.hero {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.cta-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    width: 85%;
+    text-align: center;
+}
+
+.cta-box h1 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+}
+
+.cta-box p {
+    font-size: 0.9rem;
+    margin: 0 0 0.8rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ffc107;
+    color: #000000;
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+}
+
+/* Home Grid (Events & Weather) */
+.home-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid #aaa;
+    padding: 1.2rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #888;
+    padding-bottom: 0.4rem;
+}
+
+.current-weather {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Spotlights Section */
+.spotlights-container {
+    margin-bottom: 2rem;
+}
+
+.spotlights-container > h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.spotlights-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spotlight-card {
+    background-color: var(--card-bg);
+    border: 1px solid #aaa;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.spotlight-card h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.1rem;
+}
+
+.spotlight-card .tagline {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+.spotlight-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #777;
+    margin-bottom: 0.8rem;
+}
+
+.spotlight-card p {
+    font-size: 0.85rem;
+    margin: 0.3rem 0;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.badge.gold {
+    background-color: #ffd700;
+    color: #000;
+}
+
+.badge.silver {
+    background-color: #c0c0c0;
+    color: #000;
+}
