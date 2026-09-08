@@ -186,33 +186,6 @@ h1 {
     font-size: 0.85rem;
 }
 
-.grid.list {
-    display: flex;
-    flex-direction: column;
-}
-
-.grid.list .member-card {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-}
-
-.grid.list .card-header {
-    background: none;
-    border: none;
-    text-align: left;
-    flex: 1;
-}
-
-.grid.list .card-body {
-    padding: 0;
-    gap: 2rem;
-}
-
-.grid.list .card-body img {
-    display: none;
-}
-
 footer {
     background-color: var(--card);
     border-top: 1px solid var(--border);
