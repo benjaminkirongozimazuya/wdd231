@@ -1,4 +1,3 @@
-/* Updated styles/small.css to fix Google Fonts and Contrast Issues */
 :root {
     --bg-color: #e5e5e5;
     --card-bg: #d4d4d4;
@@ -23,7 +22,6 @@ body {
     padding: 0;
 }
 
-/* Updated nav link hover and active state with solid background and high contrast text */
 nav ul li a.active, nav ul li a:hover {
     background-color: #333333;
     color: #ffffff;
@@ -131,7 +129,6 @@ h1 {
     gap: 1.5rem;
 }
 
-/* Ajoutez #cards ici pour réserver l'espace et réduire le CLS */
 #cards {
     min-height: 650px;
 }
@@ -175,7 +172,7 @@ h1 {
     aspect-ratio: 1 / 1;
     border: 1px dashed #555;
     object-fit: cover;
-    flex-shrink: 0; /* Empêche l'image de se déformer dans le conteneur flex */
+    flex-shrink: 0;
 }
 
 .card-details p {
@@ -237,7 +234,6 @@ footer {
     height: 32px;
 }
 
-/* Hero Section & CTA */
 .hero {
     position: relative;
     text-align: center;
@@ -292,7 +288,6 @@ footer {
     background-color: #e0a800;
 }
 
-/* Home Grid (Events & Weather) */
 .home-grid {
     display: flex;
     flex-direction: column;
@@ -321,7 +316,6 @@ footer {
     gap: 1rem;
 }
 
-/* Spotlights Section */
 .spotlights-container {
     margin-bottom: 2rem;
 }
@@ -390,7 +384,6 @@ footer {
     color: #000;
 }
 
-/* Styles pour la carte des événements (Events Card) */
 .events-card ul {
     list-style-type: none;
     padding: 0;
@@ -412,7 +405,7 @@ footer {
 .events-card li strong {
     display: block;
     font-size: 1.05rem;
-    color: #1a365d; /* Ajustez selon la couleur principale de votre charte graphique */
+    color: #1a365d;
     margin-bottom: 0.25rem;
 }
 
