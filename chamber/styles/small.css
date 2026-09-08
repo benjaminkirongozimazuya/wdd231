@@ -4,6 +4,11 @@
     --card-header: #c2c2c2;
     --text-color: #000000;
     --header-bg: #d4d4d4;
+    --border-color: #aaa;
+    --overlay-bg: rgba(0, 0, 0, 0.75);
+    --gold-color: #ffd700;
+    --silver-color: #c0c0c0;
+    --white-color: #ffffff;
 }
 
 body.dark-mode {
@@ -12,6 +17,11 @@ body.dark-mode {
     --card-header: #2c2c2c;
     --text-color: #e0e0e0;
     --header-bg: #1e1e1e;
+    --border-color: #444;
+    --overlay-bg: rgba(0, 0, 0, 0.85);
+    --gold-color: #ffdf00;
+    --silver-color: #d0d0d0;
+    --white-color: #e0e0e0;
 }
 
 body {
@@ -24,7 +34,7 @@ body {
 
 nav ul li a.active, nav ul li a:hover {
     background-color: #333333;
-    color: #ffffff;
+    color: var(--white-color);
 }
 
 header {
@@ -33,7 +43,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo-box {
@@ -81,7 +91,7 @@ nav ul.open {
     left: 0;
     width: 100%;
     background-color: var(--header-bg);
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid var(--border-color);
     z-index: 10;
 }
 
@@ -101,7 +111,7 @@ main {
 
 h1 {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0;
 }
 
 .view-toggle {
@@ -135,18 +145,17 @@ h1 {
 
 .member-card {
     background-color: var(--card-bg);
-    border: 1px solid #aaa;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    contain: layout paint;
 }
 
 .card-header {
     background-color: var(--card-header);
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .card-header h2 {
@@ -211,7 +220,7 @@ h1 {
 
 footer {
     background-color: var(--card-bg);
-    border-top: 1px solid #aaa;
+    border-top: 1px solid var(--border-color);
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
@@ -254,8 +263,8 @@ footer {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #ffffff;
+    background-color: var(--overlay-bg);
+    color: var(--white-color);
     padding: 1rem;
     border-radius: 6px;
     width: 85%;
@@ -265,7 +274,7 @@ footer {
 .cta-box h1 {
     font-size: 1.2rem;
     margin: 0 0 0.5rem 0;
-    color: #ffffff;
+    color: var(--white-color);
 }
 
 .cta-box p {
@@ -281,7 +290,6 @@ footer {
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
@@ -297,14 +305,14 @@ footer {
 
 .card {
     background-color: var(--card-bg);
-    border: 1px solid #aaa;
+    border: 1px solid var(--border-color);
     padding: 1.2rem;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .card h2 {
-    margin-top: 0;
+    margin: 0 0 0.4rem 0;
     font-size: 1.2rem;
     border-bottom: 2px solid #888;
     padding-bottom: 0.4rem;
@@ -333,7 +341,7 @@ footer {
 
 .spotlight-card {
     background-color: var(--card-bg);
-    border: 1px solid #aaa;
+    border: 1px solid var(--border-color);
     padding: 1rem;
     border-radius: 4px;
     text-align: center;
@@ -375,12 +383,12 @@ footer {
 }
 
 .badge.gold {
-    background-color: #ffd700;
+    background-color: var(--gold-color);
     color: #000;
 }
 
 .badge.silver {
-    background-color: #c0c0c0;
+    background-color: var(--silver-color);
     color: #000;
 }
 
@@ -397,9 +405,9 @@ footer {
 }
 
 .events-card li:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .events-card li strong {
