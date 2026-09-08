@@ -9,12 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const business = urlParams.get("business");
     const timestamp = urlParams.get("timestamp");
 
-    // Formater la date du timestamp de manière lisible
-    let formattedDate = "Non spécifiée";
+    let formattedDate = "Not specified";
     if (timestamp) {
         const dateObj = new Date(timestamp);
         if (!isNaN(dateObj)) {
-            formattedDate = dateObj.toLocaleString("fr-FR");
+            formattedDate = dateObj.toLocaleString("en-US");
         } else {
             formattedDate = timestamp;
         }
@@ -23,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (resultsContainer) {
         resultsContainer.innerHTML = `
             <ul>
-                <li><strong>Prénom :</strong> ${fname || "Non renseigné"}</li>
-                <li><strong>Nom :</strong> ${lname || "Non renseigné"}</li>
-                <li><strong>Adresse e-mail :</strong> ${email || "Non renseigné"}</li>
-                <li><strong>Téléphone mobile :</strong> ${phone || "Non renseigné"}</li>
-                <li><strong>Nom de l'entreprise :</strong> ${business || "Non renseigné"}</li>
-                <li><strong>Date et heure de soumission :</strong> ${formattedDate}</li>
+                <li><strong>First Name:</strong> ${fname || "Not provided"}</li>
+                <li><strong>Last Name:</strong> ${lname || "Not provided"}</li>
+                <li><strong>Email Address:</strong> ${email || "Not provided"}</li>
+                <li><strong>Mobile Phone:</strong> ${phone || "Not provided"}</li>
+                <li><strong>Business Name:</strong> ${business || "Not provided"}</li>
+                <li><strong>Submission Date & Time:</strong> ${formattedDate}</li>
             </ul>
         `;
     }

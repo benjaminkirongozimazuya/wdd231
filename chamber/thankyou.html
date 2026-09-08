@@ -1,42 +1,81 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation - Chambre de Commerce de Kolwezi</title>
-    <link rel="stylesheet" href="styles/normalize.css">
+    <title>Thank You | Kolwezi Chamber of Commerce</title>
+    <meta name="description" content="Thank you for applying to the Kolwezi Chamber of Commerce.">
+    <meta name="author" content="Benjamin Kirongozi Mazuya">
+
+    <!-- Google Fonts Preconnect and Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph Meta Tags with Absolute GitHub Pages URL -->
+    <meta property="og:title" content="Thank You | Kolwezi Chamber of Commerce">
+    <meta property="og:description" content="Thank you for submitting your membership application.">
+    <meta property="og:image" content="https://benjaminkirongozimazuya.github.io/wdd231/chamber/images/hero.webp">
+    <meta property="og:url" content="https://benjaminkirongozimazuya.github.io/wdd231/chamber/thankyou.html"> 
+
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
-    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
     <script src="scripts/thankyou.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="header-box">
-            <span class="logo">🏛️</span>
-            <h1>Chambre de Commerce de Kolwezi</h1>
+        <div class="logo-box">
+            <img src="images/logo.svg" alt="Chamber Logo">
+            <span>Kolwezi Chamber of Commerce</span>
+        </div>
+        <div class="header-right">
+            <button id="dark-mode" aria-label="Toggle Dark Mode">🌓</button>
+            <button id="menu" aria-label="Toggle Navigation Menu"></button>
         </div>
         <nav>
             <ul class="navigation">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="directory.html">Annuaire</a></li>
-                <li><a href="join.html">Adhésion</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="thankyou-main">
-        <h2>Merci pour votre demande d'adhésion !</h2>
-        <p>Votre formulaire a bien été soumis. Voici un récapitulatif des informations enregistrées :</p>
+        <h2>Thank You for Your Application!</h2>
+        <p>Your form has been successfully submitted. Here is a summary of the information provided:</p>
 
         <div id="results" class="thankyou-results">
-            <!-- Les données de l'URL s'afficheront ici dynamiquement -->
+            <!-- URL data will be dynamically loaded here -->
         </div>
 
-        <p><a href="index.html" class="return-btn">Retour à l'accueil</a></p>
+        <p><a href="index.html" class="return-btn">Return to Home</a></p>
     </main>
 
     <footer>
-        <p>&copy; 2026 Chambre de Commerce de Kolwezi | Benjamin Kirongozi Mazuya</p>
+        <div class="footer-col">
+            <p><strong>Kolwezi Chamber of Commerce</strong></p>
+            <p>48, Av. Kalenga, Q/Kamanyola</p>
+            <p>Kolwezi, Lualaba 999</p>
+            <p>kirongozinotes1@gmail.com</p>
+            <p>(+243) 89-09-248-24</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><img src="images/social.png" alt="YouTube"></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="https://www.linkedin.com/in/benjamin-kirongozi-mazuya-806a2926a" target="_blank" aria-label="LinkedIn">
+              <img src="images/linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+        <div class="footer-col">
+            <p>WDD231 Class Project</p>
+            <p>Benjamin Kirongozi Mazuya</p>
+            <p>&copy; <span id="currentyear"></span> Kolwezi Chamber of Commerce</p>
+            <p id="lastModified"></p>
+        </div>
     </footer>
 </body>
 </html>
