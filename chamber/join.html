@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chambre de Commerce de Kolwezi - Demande d'Adhésion</title>
+    <!-- Remplacez par vos liens CSS habituels (normalize, base, small, larger, etc.) -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- Votre en-tête commun -->
+        <div class="header-box">
+            <span class="logo">🏛️</span>
+            <h1>Chambre de Commerce de Kolwezi</h1>
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="directory.html">Annuaire</a></li>
+                <li><a href="join.html" class="active">Adhésion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Formulaire de Demande d'Adhésion</h2>
+
+        <div class="join-container">
+            <!-- Formulaire -->
+            <form method="get" action="thankyou.html" class="join-form">
+                <fieldset>
+                    <legend>Informations Personnelles et Professionnelles</legend>
+
+                    <label>Prénom *
+                        <input type="text" name="fname" title="Entrez votre prénom" autocomplete="given-name" required>
+                    </label>
+
+                    <label>Nom de famille *
+                        <input type="text" name="lname" title="Entrez votre nom" autocomplete="family-name" required>
+                    </label>
+
+                    <label>Titre organisationnel
+                        <input type="text" name="orgTitle" title="Minimum 7 caractères (lettres, espaces, tirets)" autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}">
+                    </label>
+
+                    <label>Adresse e-mail *
+                        <input type="email" name="email" title="Entrez une adresse e-mail valide" autocomplete="email" placeholder="exemple@domaine.com" required>
+                    </label>
+
+                    <label>Numéro de téléphone mobile *
+                        <input type="tel" name="phone" title="Entrez votre numéro de téléphone" autocomplete="tel" required>
+                    </label>
+
+                    <label>Nom de l'entreprise / Organisation *
+                        <input type="text" name="business" title="Entrez le nom de votre organisation" autocomplete="organization" required>
+                    </label>
+
+                    <label>Niveau d'adhésion *
+                        <select name="membership" required>
+                            <option value="" disabled selected>Choisissez un niveau</option>
+                            <option value="np">NP Membership (Sans but lucratif - Gratuit)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </label>
+
+                    <label>Description de l'entreprise
+                        <textarea name="description" title="Décrivez brièvement votre activité"></textarea>
+                    </label>
+
+                    <!-- Champ caché pour le timestamp -->
+                    <input type="hidden" name="timestamp" id="timestamp">
+
+                    <input type="submit" value="Soumettre ma demande" id="submitBtn">
+                </fieldset>
+            </form>
+
+            <!-- Cartes des niveaux d'adhésion (affichées en dessous sur mobile, à droite sur grand écran) -->
+            <aside class="membership-cards">
+                <div class="card card-np">
+                    <h3>NP Membership</h3>
+                    <p>Idéal pour les associations et organisations à but non lucratif.</p>
+                    <button type="button" class="open-modal" data-modal="modal-np">En savoir plus</button>
+                </div>
+                <div class="card card-bronze">
+                    <h3>Bronze Membership</h3>
+                    <p>Accès aux événements de base et opportunités de networking.</p>
+                    <button type="button" class="open-modal" data-modal="modal-bronze">En savoir plus</button>
+                </div>
+                <div class="card card-silver">
+                    <h3>Silver Membership</h3>
+                    <p>Avantages accrus et réductions sur les formations.</p>
+                    <button type="button" class="open-modal" data-modal="modal-silver">En savoir plus</button>
+                </div>
+                <div class="card card-gold">
+                    <h3>Gold Membership</h3>
+                    <p>Visibilité maximale, positions phares et avantages VIP.</p>
+                    <button type="button" class="open-modal" data-modal="modal-gold">En savoir plus</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Modals HTML -->
+        <dialog id="modal-np" class="membership-modal">
+            <h3>Détails - NP Membership</h3>
+            <p>Ce niveau est entièrement gratuit et réservé aux structures à but non lucratif œuvrant dans la région de Kolwezi. Il permet de participer aux réunions générales et de s'intégrer dans le réseau associatif local.</p>
+            <button type="button" class="close-modal">Fermer</button>
+        </dialog>
+
+        <dialog id="modal-bronze" class="membership-modal">
+            <h3>Détails - Bronze Membership</h3>
+            <p>Le niveau Bronze offre des tarifs préférentiels pour nos ateliers de développement des affaires ainsi qu'une présence de base dans notre annuaire numérique public.</p>
+            <button type="button" class="close-modal">Fermer</button>
+        </dialog>
+
+        <dialog id="modal-silver" class="membership-modal">
+            <h3>Détails - Silver Membership</h3>
+            <p>Le niveau Silver comprend l'accès prioritaire à tous les séminaires, des réductions significatives sur les événements annuels et une mise en avant modérée de vos services.</p>
+            <button type="button" class="close-modal">Fermer</button>
+        </dialog>
+
+        <dialog id="modal-gold" class="membership-modal">
+            <h3>Détails - Gold Membership</h3>
+            <p>Le niveau Gold est le sommet de l'adhésion. Il inclut une position de premier plan (spotlight) sur la page d'accueil du site de la Chambre, un accompagnement personnalisé et un accès VIP à tous les sommets économiques.</p>
+            <button type="button" class="close-modal">Fermer</button>
+        </dialog>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Chambre de Commerce de Kolwezi | Benjamin Kirongozi Mazuya</p>
+    </footer>
+</body>
+</html>

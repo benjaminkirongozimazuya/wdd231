@@ -421,3 +421,54 @@ footer {
     font-size: 0.95rem;
     color: #4a5568;
 }
+
+.join-form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.join-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #333;
+    gap: 0.4rem;
+}
+
+.join-form input[type="text"],
+.join-form input[type="email"],
+.join-form input[type="tel"],
+.join-form select,
+.join-form textarea {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #a0a0a0;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.join-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#submitBtn {
+    background-color: #0056b3;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#submitBtn:hover {
+    background-color: #003d82;
+}
