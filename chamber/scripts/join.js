@@ -5,7 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
         timestampField.value = new Date().toISOString();
     }
 
-    // 2. Gestion des modaux (Ouverture / Fermeture)
+    // 2. Gestion du menu Hamburger mobile
+    const menuButton = document.querySelector("#menu");
+    const navigation = document.querySelector(".navigation");
+
+    if (menuButton && navigation) {
+        menuButton.addEventListener("click", () => {
+            navigation.classList.toggle("open");
+            menuButton.classList.toggle("open");
+        });
+    }
+
+    // 3. Gestion des modaux (Ouverture / Fermeture)
     const openButtons = document.querySelectorAll(".open-modal");
     const closeButtons = document.querySelectorAll(".close-modal");
 
@@ -28,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. Gestion du Mode Sombre (Dark Mode)
+    // 4. Gestion du Mode Sombre (Dark Mode)
     const darkModeButton = document.querySelector("#dark-mode");
     const body = document.body;
 
@@ -44,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Pied de page (Année en cours & Date de dernière modification)
+    // 5. Pied de page (Année en cours & Date de dernière modification)
     const currentYearSpan = document.getElementById("currentyear");
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
