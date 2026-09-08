@@ -86,3 +86,19 @@
         align-items: start;
     }
 }
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.membership-cards .card {
+    animation: fadeInSlide 0.8s ease-out forwards;
+    padding: 1.5rem;
+    opacity: 0;
+}
+
+.membership-cards .card:nth-child(1) { animation-delay: 0.1s; }
+.membership-cards .card:nth-child(2) { animation-delay: 0.2s; }
+.membership-cards .card:nth-child(3) { animation-delay: 0.3s; }
+.membership-cards .card:nth-child(4) { animation-delay: 0.4s; }
