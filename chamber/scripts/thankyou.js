@@ -66,4 +66,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const lastMod = new Date(document.lastModified);
         lastModifiedParagraph.textContent = `Last Modification: ${lastMod.toLocaleString("en-US")}`;
     }
+}); 
+
+// 3. Gestion des modaux (Ajouté en bas)
+document.addEventListener("DOMContentLoaded", () => {
+    const openButtons = document.querySelectorAll(".open-modal");
+    const closeButtons = document.querySelectorAll(".close-modal");
+
+    openButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.showModal();
+            }
+        });
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = button.closest("dialog");
+            if (modal) {
+                modal.close();
+            }
+        });
+    });
 });
