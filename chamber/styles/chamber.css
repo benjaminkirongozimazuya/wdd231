@@ -48,7 +48,6 @@ header {
     cursor: pointer;
 }
 
-/* Le bouton burger est caché par défaut sur Desktop et affiché uniquement sur mobile */
 #menu {
     display: none;
     background: none;
@@ -61,7 +60,11 @@ header {
     content: "☰";
 }
 
-/* Navigation par défaut (visible sur grand écran, masquée sur mobile sauf si ouvert) */
+#menu.open::before {
+    content: "✕";
+}
+
+/* Navigation */
 nav {
     width: 100%;
 }
@@ -84,98 +87,7 @@ nav {
     color: #0056b3;
 }
 
-/* --- Contenu Principal (Main) --- */
-.discover-main {
-    padding: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.discover-main h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.visit-banner {
-    background-color: #e2e8f0;
-    padding: 0.75rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-/* --- Grille et Cartes (Mobile : 1 colonne) --- */
-.discover-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-.discover-grid .card {
-    background: #e6e6e6;
-    border: 1px solid #b5b5b5;
-    border-radius: 6px;
-    padding: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Aligne les éléments de haut en bas */
-}
-
-.discover-grid .card h2 {
-    font-size: 1.15rem;
-    text-align: center;
-    margin: 0 0 0.2rem 0;
-    color: #111;
-}
-
-.discover-grid .card address {
-    font-style: italic; /* Met l'adresse en italique */
-    text-align: center;
-    color: #555;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-}
-
-.discover-grid .card p {
-    font-size: 0.85rem;
-    color: #333;
-    line-height: 1.4;
-    margin: 0 0 0.75rem 0;
-    flex-grow: 1; /* Permet au texte d'occuper l'espace disponible de façon égale */
-}
-
-.discover-grid img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #aaa;
-}
-
-.discover-grid .card button {
-    background-color: #717171;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: bold;
-    text-align: center;
-    margin-top: auto; /* Force le bouton à se caler tout en bas de la carte */
-}
-
-.discover-grid .card button:hover {
-    background-color: #555;
-}
-
-/* --- Pied de page (Footer Mobile en colonne unique) --- */
+/* --- Pied de page (Footer) --- */
 footer {
     background-color: #dcdcdc;
     color: #222;
@@ -205,14 +117,14 @@ footer p {
     height: 28px;
 }
 
-/* --- Media Query pour les petits écrans / Mobile (Affichage du bouton Burger) --- */
+/* --- Media Queries Header/Footer & Mode Sombre Commun --- */
 @media (max-width: 1024px) {
     #menu {
-        display: block; /* Apparition du bouton burger uniquement sur mobile/tablette */
+        display: block;
     }
 
     nav {
-        display: none; /* Masqué par défaut, géré par le JS avec .open */
+        display: none;
         width: 100%;
     }
 
@@ -237,35 +149,18 @@ footer p {
     }
 }
 
-/* --- Media Queries pour les écrans plus larges (Desktop) --- */
 @media (min-width: 1025px) {
     header {
         padding: 1rem 2rem;
     }
 
     #menu {
-        display: none !important; /* Forcé d'être invisible sur grand écran */
+        display: none !important;
     }
 
     nav {
         display: block;
         width: auto;
-    }
-
-    .navigation {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        margin: 0;
-        padding: 0;
-    }
-
-    .discover-main {
-        max-width: 1100px;
-    }
-
-    .discover-grid {
-        grid-template-columns: repeat(3, 1fr);
     }
 
     footer {
@@ -279,19 +174,8 @@ footer p {
     .footer-social {
         justify-content: center;
     }
-
-    /* Effet d'agrandissement d'image uniquement sur Desktop */
-    .discover-grid img {
-        transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .discover-grid .card:hover img {
-        transform: scale(1.03);
-        filter: brightness(1.05);
-    }
 }
 
-/* --- Styles du Mode Sombre --- */
 body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
@@ -307,79 +191,8 @@ body.dark-mode .navigation a {
     color: #e0e0e0;
 }
 
-body.dark-mode .discover-grid .card {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    color: #e0e0e0;
-}
-
-body.dark-mode .discover-grid .card h2 {
-    color: #ffffff;
-}
-
-body.dark-mode .discover-grid .card address {
-    color: #a0a0a0;
-    border-bottom: 1px solid #444;
-}
-
-body.dark-mode .discover-grid .card p {
-    color: #cccccc;
-}
-
-body.dark-mode .visit-banner {
-    background-color: #1e293b;
-    color: #93c5fd;
-}
-
 body.dark-mode footer {
     background-color: #1e1e1e;
     color: #cccccc;
     border-top: 1px solid #333;
-}
-
-/* Transformation du bouton burger en "X" lorsqu'il est ouvert */
-#menu.open::before {
-    content: "✕";
-}
-
-/* Style de la boîte de dialogue native */
-.place-modal {
-    border: none;
-    border-radius: 8px;
-    padding: 2rem;
-    max-width: 400px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Arrière-plan assombri (backdrop) */
-.place-modal::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.place-modal h3 {
-    margin-top: 0;
-    color: #0f172a;
-}
-
-.place-modal .close-modal {
-    background-color: #717171;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-.place-modal .close-modal:hover {
-    background-color: #555;
-}
-
-body.dark-mode .place-modal {
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-}
-
-body.dark-mode .place-modal h3 {
-    color: #ffffff;
 }
