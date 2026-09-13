@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the iconic places, culture, and heritage of Kolwezi, Lualaba. Explore local markets, monuments, parks, and more.">
+    <title>Kolwezi Chamber of Commerce - Discover</title>
+    <link rel="stylesheet" href="styles/chamber.css">
+    <link rel="stylesheet" href="styles/discover.css">
+    <script src="scripts/discover.js" type="module" defer></script>
+</head>
+<body>
+    <!-- Ton header et ta navigation habituels ici -->
+    <header>
+        <div class="logo-box">
+            <img src="images/logo.svg" alt="Chamber Logo">
+            <span>Kolwezi Chamber of Commerce</span>
+        </div>
+        <div class="header-right">
+            <button id="dark-mode" aria-label="Toggle Dark Mode">🌓</button>
+            <button id="menu" aria-label="Toggle Navigation Menu"></button>
+        </div>
+        <nav>
+    <ul class="navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html" class="active">Discover</a></li>
+    </ul>
+</nav>
+    </header>
+    <main class="discover-main">
+        <h1>Discover Kolwezi</h1>
+        
+        <!-- Zone pour le message du localStorage -->
+        <div id="visit-message" class="visit-banner"></div>
+
+        <!-- Grille pour les 8 cartes -->
+        <div class="discover-grid"></div>
+    </main>
+
+    <!-- Ton footer habituel ici -->
+     <footer>
+        <div class="footer-col">
+            <p><strong>Kolwezi Chamber of Commerce</strong></p>
+            <p>48, Av. Kalenga, Q/Kamanyola</p>
+            <p>Kolwezi, Lualaba 999</p>
+            <p>kirongozinotes1@gmail.com</p>
+            <p>(+243) 89-09-248-24</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><img src="images/social.png" alt="YouTube"></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="https://www.linkedin.com/in/benjamin-kirongozi-mazuya-806a2926a" target="_blank" aria-label="LinkedIn">
+              <img src="images/linkedin.png" alt="LinkedIn">
+            </a>
+
+        </div>
+        <div class="footer-col">
+            <p>WDD231 Class Project</p>
+            <p>Benjamin Kirongozi Mazuya</p>
+            <p>&copy; <span id="currentyear"></span> Kolwezi Chamber of Commerce</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+</html>
