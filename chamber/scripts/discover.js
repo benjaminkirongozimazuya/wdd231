@@ -14,7 +14,7 @@ function displayPlaces() {
         card.innerHTML = `
     <h2>${place.name}</h2>
     <figure>
-        <img src="images/${place.photo}" alt="${place.name}" width="300" height="160">
+        <img src="images/${place.photo}" alt="${place.name}" width="300" height="160" loading="lazy">
     </figure>
     <address>${place.address}</address>
     <p>${place.description}</p>
