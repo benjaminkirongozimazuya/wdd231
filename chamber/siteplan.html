@@ -6,8 +6,10 @@
     <title>QuickBite Express - Site Plan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Lien vers votre fichier CSS externe -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    </noscript>
     <link rel="stylesheet" href="styles/siteplan.css">
 </head>
 <body>
@@ -63,8 +65,7 @@
         
         <div class="wireframe-box">
             <p><strong>Mobile View & Desktop View Wireframes:</strong></p>
-            <!-- Remplacez "wireframes.jpg" par le nom exact de votre fichier image -->
-            <img src="images/wireframes.png" alt="Hand-drawn wireframes for mobile and desktop views" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 10px;">
+            <img src="images/wireframes.webp" alt="Hand-drawn wireframes for mobile and desktop views" width="800" height="600" loading="lazy" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 10px;">
         </div>
     </section>
 
