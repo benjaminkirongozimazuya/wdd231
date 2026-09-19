@@ -1,13 +1,15 @@
 /* ==========================================
-   1. Styles de base pour la section Hero
+   1. Styles globaux et de base (Mobile First)
    ========================================== */
+
+/* Section Hero */
 .hero {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     padding: 2.5rem 1.5rem;
     align-items: center;
-    background-color: #f9f9f9; /* Fond neutre, sans image en arrière-plan */
+    background-color: #f9f9f9;
     border-radius: 8px;
     margin: 1rem 0;
 }
@@ -40,6 +42,14 @@
     display: block;
 }
 
+/* Boutons du Hero */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .hero .cta-button {
     display: inline-block;
     background-color: #ff6b6b;
@@ -55,59 +65,15 @@
     background-color: #fa5252;
 }
 
+.secondary-btn {
+    background-color: transparent !important;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b !important;
+}
 
-/* ==========================================
-   2. Media Queries pour les écrans larges (Desktop)
-   ========================================== */
-@media (min-width: 768px) {
-    /* Navigation burger */
-    #menu-button {
-        display: none; /* Cache le bouton burger sur grand écran */
-    }
-
-    nav ul {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        width: auto;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    nav ul li a {
-        border-top: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-    }
-
-    /* Section Hero en mode côte à côte (Texte à gauche, Image à droite) */
-    .hero {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 4rem;
-        gap: 3rem;
-    }
-
-    .hero-content {
-        flex: 1;
-        text-align: left; /* Aligne le texte à gauche sur grand écran */
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-image-container {
-        flex: 1;
-    }
-
-    /* Grille pour les cartes d'établissements */
-    #eatery-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
+.secondary-btn:hover {
+    background-color: #ff6b6b !important;
+    color: #fff !important;
 }
 
 /* Section des avantages (Why Choose Us) */
@@ -147,34 +113,93 @@
     color: #ff6b6b;
 }
 
-/* Grille sur grand écran */
-@media (min-width: 768px) {
-    .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Boutons multiples dans le hero */
-.hero-buttons {
+/* Grille pour le Chef's Special (Vidéo + Photo Kolwezi) - Mobile */
+.chef-special-grid {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
 }
 
+.chef-special-grid .media-item,
+.special-video,
+.special-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+
+/* ==========================================
+   2. Media Queries pour les écrans larges (Desktop >= 768px)
+   ========================================== */
 @media (min-width: 768px) {
+    /* Navigation burger */
+    #menu-button {
+        display: none;
+    }
+
+    nav ul {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    nav ul li a {
+        border-top: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    /* Section Hero (Côte à côte) */
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4rem;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        flex: 1;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image-container {
+        flex: 1;
+    }
+
     .hero-buttons {
         justify-content: flex-start;
     }
-}
 
-.secondary-btn {
-    background-color: transparent !important;
-    border: 2px solid #ff6b6b;
-    color: #ff6b6b !important;
-}
+    /* Grille pour les cartes d'établissements */
+    #eatery-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
 
-.secondary-btn:hover {
-    background-color: #ff6b6b !important;
-    color: #fff !important;
+    /* Grille des avantages (3 colonnes) */
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Chef's Special (Vidéo à gauche, Photo de Kolwezi à droite) */
+    .chef-special-grid {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .chef-special-grid > div {
+        flex: 1;
+    }
 }
