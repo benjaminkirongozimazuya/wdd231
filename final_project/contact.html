@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBite Express - Application Form</title>
+    <meta name="description" content="Apply for QuickBite Express partnership or get in touch with our team.">
+    <meta name="author" content="Benjamin Kirongozi Mazuya">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/quickbitelogo.png" type="image/x-icon">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
+
+    <!-- JavaScript ES Module -->
+    <script type="module" src="scripts/main.js" defer></script>
+</head>
+<body>
+    <!-- Site Header -->
+    <header>
+        <div class="logo-container">
+            <img src="images/quickbitelogo.png" alt="QuickBite Express Logo" width="50" height="50" loading="lazy">
+            <span class="site-title">QuickBite Express</span>
+        </div>
+        <button id="menu-button" aria-label="Open navigation menu">&#9776;</button>
+        <nav>
+            <ul id="menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Layout (Two Columns) -->
+    <main class="form-layout-container">
+        
+        <!-- Colonne de gauche : Le Formulaire -->
+        <section class="form-wrapper">
+            <h2>Partnership Application Form</h2>
+            <form action="form-action.html" method="GET" class="styled-form">
+                <fieldset>
+                    <legend>Personal & Professional Information</legend>
+
+                    <div class="form-group">
+                        <label for="firstname">First Name *</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname">Last Name *</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orgtitle">Organizational Title</label>
+                        <input type="text" id="orgtitle" name="orgtitle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bizname">Business / Organization Name *</label>
+                        <input type="text" id="bizname" name="bizname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="membership">Partnership Level *</label>
+                        <select id="membership" name="membership" required>
+                            <option value="" disabled selected>Select a partnership level</option>
+                            <option value="np">NP Partner (Non-Profit)</option>
+                            <option value="bronze">Bronze Partner</option>
+                            <option value="silver">Silver Partner</option>
+                            <option value="gold">Gold Partner</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Business Description</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="submit-btn">Apply for Partnership</button>
+            </form>
+        </section>
+
+        <!-- Colonne de droite : Les cartes d'information (Cards) -->
+        <aside class="info-cards-wrapper">
+            <div class="info-card">
+                <h3>NP Partnership</h3>
+                <p>Designed for non-profit organizations with no partnership fee.</p>
+                <button type="button" class="info-btn">Learn More</button>
+            </div>
+
+            <div class="info-card">
+                <h3>Bronze Partnership</h3>
+                <p>Basic networking and community event access.</p>
+                <button type="button" class="info-btn">Learn More</button>
+            </div>
+
+            <div class="info-card">
+                <h3>Silver Partnership</h3>
+                <p>Enhanced benefits and training discounts.</p>
+                <button type="button" class="info-btn">Learn More</button>
+            </div>
+
+            <div class="info-card">
+                <h3>Gold Partnership</h3>
+                <p>Maximum visibility, spotlight positions, and VIP perks.</p>
+                <button type="button" class="info-btn">Learn More</button>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="current-year">2026</span> QuickBite Express. All rights reserved.</p>
+        <p><a href="attributions.html">Source and Image Attributions</a></p>
+    </footer>
+    <!-- Modal Dialog pour afficher les détails des niveaux de partenariat -->
+<dialog id="partnership-modal">
+    <div class="modal-content">
+        <button id="close-modal" aria-label="Close modal">&times;</button>
+        <div id="modal-body">
+            <!-- Le contenu sera injecté dynamiquement ici -->
+        </div>
+    </div>
+</dialog>
+</body>
+</html>

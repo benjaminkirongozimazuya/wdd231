@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBite Express - Application Summary</title>
+    <meta name="description" content="Confirmation and display page for partnership application data on QuickBite Express.">
+    <meta name="author" content="Benjamin Kirongozi Mazuya">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/quickbitelogo.png" type="image/x-icon">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
+</head>
+<body>
+    <!-- Site Header -->
+    <header>
+        <div class="logo-container">
+            <img src="images/quickbitelogo.png" alt="QuickBite Express Logo" width="50" height="50" loading="lazy">
+            <span class="site-title">QuickBite Express</span>
+        </div>
+        <nav>
+            <ul id="menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="form-action-header">
+            <h1>Thank You for Your Application!</h1>
+            <p>Here is a summary of the information you submitted to us:</p>
+        </section>
+
+        <section class="card" style="padding: 2rem; max-width: 600px; margin: 0 auto;">
+            <div id="form-results" style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- Form data will be dynamically injected here -->
+            </div>
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="index.html" class="cta-button">Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script to extract and display URL parameters -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const resultsContainer = document.getElementById('form-results');
+
+        const firstname = urlParams.get('firstname');
+        const lastname = urlParams.get('lastname');
+        const orgtitle = urlParams.get('orgtitle');
+        const email = urlParams.get('email');
+        const phone = urlParams.get('phone');
+        const bizname = urlParams.get('bizname');
+        const membership = urlParams.get('membership');
+        const description = urlParams.get('description');
+
+        if (firstname || email || bizname) {
+            resultsContainer.innerHTML = `
+                <p><strong>First Name:</strong> ${escapeHtml(firstname || 'Not provided')}</p>
+                <p><strong>Last Name:</strong> ${escapeHtml(lastname || 'Not provided')}</p>
+                <p><strong>Organizational Title:</strong> ${escapeHtml(orgtitle || 'Not provided')}</p>
+                <p><strong>Email Address:</strong> ${escapeHtml(email || 'Not provided')}</p>
+                <p><strong>Mobile Phone Number:</strong> ${escapeHtml(phone || 'Not provided')}</p>
+                <p><strong>Business / Organization Name:</strong> ${escapeHtml(bizname || 'Not provided')}</p>
+                <p><strong>Partnership Level:</strong> ${escapeHtml(membership || 'Not provided')}</p>
+                <p><strong>Business Description:</strong> ${escapeHtml(description || 'Not provided')}</p>
+            `;
+        } else {
+            resultsContainer.innerHTML = `<p>No form data received. Please submit the form from the <a href="contact.html">contact page</a>.</p>`;
+        }
+
+        // Utility function for basic XSS protection
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="current-year">2026</span> QuickBite Express. All rights reserved.</p>
+        <p><a href="attributions.html">Source and Image Attributions</a></p>
+    </footer>
+</body>
+</html>

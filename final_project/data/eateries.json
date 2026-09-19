@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Le Gourmet Kolwezien",
+    "cuisine": "Traditional Congolese",
+    "price": "$$",
+    "rating": 4.5,
+    "image": "images/restaurant1.webp"
+  },
+  {
+    "id": 2,
+    "name": "Savannah Grill",
+    "cuisine": "Grills & Barbecue",
+    "price": "$$$",
+    "rating": 4.7,
+    "image": "images/restaurant2.webp"
+  },
+  {
+    "id": 3,
+    "name": "Sweet & Spicy Wok",
+    "cuisine": "Asian Fusion",
+    "price": "$$",
+    "rating": 4.3,
+    "image": "images/restaurant3.webp"
+  },
+  {
+    "id": 4,
+    "name": "Pizza Bella Italia",
+    "cuisine": "Italian & Pizzeria",
+    "price": "$$",
+    "rating": 4.6,
+    "image": "images/restaurant4.webp"
+  },
+  {
+    "id": 5,
+    "name": "Burger Corner Express",
+    "cuisine": "Fast Food & Burgers",
+    "price": "$",
+    "rating": 4.2,
+    "image": "images/restaurant5.webp"
+  },
+  {
+    "id": 6,
+    "name": "L'Escale Tropicale",
+    "cuisine": "Fish & Seafood",
+    "price": "$$$",
+    "rating": 4.8,
+    "image": "images/restaurant6.webp"
+  },
+  {
+    "id": 7,
+    "name": "Le P'tit Kawa",
+    "cuisine": "Coffee & Pastries",
+    "price": "$",
+    "rating": 4.4,
+    "image": "images/restaurant7.webp"
+  },
+  {
+    "id": 8,
+    "name": "Delhi Spice",
+    "cuisine": "Indian",
+    "price": "$$",
+    "rating": 4.5,
+    "image": "images/restaurant8.webp"
+  },
+  {
+    "id": 9,
+    "name": "Tacos Locos",
+    "cuisine": "Mexican",
+    "price": "$$",
+    "rating": 4.3,
+    "image": "images/restaurant9.webp"
+  },
+  {
+    "id": 10,
+    "name": "Green Bowl & Salad",
+    "cuisine": "Healthy & Vegetarian",
+    "price": "$$",
+    "rating": 4.6,
+    "image": "images/restaurant10.webp"
+  },
+  {
+    "id": 11,
+    "name": "Le Miel & Cannelle",
+    "cuisine": "Bakery & Tea Room",
+    "price": "$",
+    "rating": 4.7,
+    "image": "images/restaurant11.webp"
+  },
+  {
+    "id": 12,
+    "name": "Dragon d'Or",
+    "cuisine": "Traditional Chinese",
+    "price": "$$",
+    "rating": 4.4,
+    "image": "images/restaurant12.webp"
+  },
+  {
+    "id": 13,
+    "name": "Churrascaria Brasil",
+    "cuisine": "Brazilian & Meats",
+    "price": "$$$",
+    "rating": 4.9,
+    "image": "images/restaurant13.webp"
+  },
+  {
+    "id": 14,
+    "name": "Le Délice Libanais",
+    "cuisine": "Lebanese & Mezze",
+    "price": "$$",
+    "rating": 4.5,
+    "image": "images/restaurant14.webp"
+  },
+  {
+    "id": 15,
+    "name": "Frite & Co",
+    "cuisine": "Belgian Brasserie",
+    "price": "$",
+    "rating": 4.2,
+    "image": "images/restaurant15.webp"
+  }
+]
