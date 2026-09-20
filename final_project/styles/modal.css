@@ -1,4 +1,6 @@
-/* Style de la boîte de dialogue modale */
+/* ==========================================
+   Style de la boîte de dialogue modale
+   ========================================== */
 dialog {
     border: none;
     border-radius: 8px;

@@ -1,6 +1,8 @@
-/* Variables et configuration globale */
+/* ==========================================
+   1. Variables et configuration globale
+   ========================================== */
 :root {
-    --primary-color: #D35400; /* Burnt Orange */
+    --primary-color: #b83b00; /* Burnt Orange optimisé pour le contraste WCAG */
     --secondary-color: #2C3E50; /* Dark Slate Blue */
     --bg-color: #F9F9F9; /* Light Off-White */
     --text-color: #333333;
@@ -22,7 +24,9 @@ body {
     line-height: 1.6;
 }
 
-/* En-tête et Navigation Mobile */
+/* ==========================================
+   2. En-tête et Navigation Mobile
+   ========================================== */
 header {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -62,11 +66,11 @@ nav ul {
     left: 0;
     width: 100%;
     background-color: var(--secondary-color);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul.open {
-    display: flex; /* S'affiche quand le menu burger est cliqué */
+    display: flex;
 }
 
 nav ul li a {
@@ -75,14 +79,17 @@ nav ul li a {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-nav ul li a:hover, nav ul li a.active {
+nav ul li a:hover, 
+nav ul li a.active {
     background-color: var(--primary-color);
 }
 
-/* Contenu Principal */
+/* ==========================================
+   3. Contenu Principal & Section Hero
+   ========================================== */
 main {
     padding: 1.5rem;
     max-width: 1200px;
@@ -90,34 +97,82 @@ main {
 }
 
 .hero {
-    text-align: center;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.hero h1 {
+.hero-content {
+    text-align: center;
+}
+
+.hero-content h1 {
     font-family: var(--font-heading);
-    color: var(--secondary-color);
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #555555;
+}
+
+.hero-image-container {
+    width: 100%;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
     text-decoration: none;
-    font-weight: 500;
-    margin-top: 1rem;
-    transition: background 0.3s;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #b54600;
+    background-color: #932e00;
 }
 
-/* Cartes et sections */
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* ==========================================
+   4. Cartes, Sections et Avantages
+   ========================================== */
 section {
     margin-bottom: 2rem;
 }
@@ -133,7 +188,7 @@ h2 {
     background: var(--white);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.5rem;
     border: 1px solid #eaeaea;
 }
@@ -154,27 +209,63 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-/* Pied de page */
-footer {
-    background-color: var(--secondary-color);
-    color: var(--white);
+.info-section {
+    padding: 3rem 1rem;
     text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
-    font-size: 0.9rem;
 }
 
-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
+.info-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
 }
 
-.social-icons {
-    margin-top: 0.8rem;
-    font-size: 1.2rem;
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* Conteneur principal en grille à deux colonnes pour grands écrans */
+.benefit-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-card h3 {
+    margin-bottom: 0.75rem;
+    color: var(--secondary-color);
+    font-family: var(--font-heading);
+}
+
+/* Grille Chef's Special (Vidéo + Photo Kolwezi) */
+.chef-special-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.chef-special-grid .media-item,
+.special-video,
+.special-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ==========================================
+   5. Formulaires et Cartes d'Information
+   ========================================== */
 .form-layout-container {
     display: flex;
     flex-direction: column;
@@ -184,20 +275,11 @@ footer a {
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    .form-layout-container {
-        display: grid;
-        grid-template-columns: 2fr 1fr; /* Le formulaire prend plus de place, les cartes à droite */
-        align-items: start;
-    }
-}
-
-/* Style du formulaire et du Fieldset */
 .form-wrapper {
-    background: #ffffff;
+    background: var(--white);
     padding: 2rem;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid #ddd;
 }
 
@@ -248,13 +330,13 @@ legend {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 4px rgba(211, 84, 0, 0.3);
+    box-shadow: 0 0 4px rgba(184, 59, 0, 0.3);
 }
 
 .submit-btn {
     width: 100%;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     padding: 0.9rem;
     border: none;
     border-radius: 4px;
@@ -265,10 +347,9 @@ legend {
 }
 
 .submit-btn:hover {
-    background-color: #b54600;
+    background-color: #932e00;
 }
 
-/* Style des cartes d'information à droite (inspiré de votre image) */
 .info-cards-wrapper {
     display: flex;
     flex-direction: column;
@@ -276,11 +357,11 @@ legend {
 }
 
 .info-card {
-    background-color: #eaeaea; /* Fond gris clair similaire à l'image */
+    background-color: #eaeaea;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .info-card h3 {
@@ -295,7 +376,7 @@ legend {
 .info-card p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    color: #444;
+    color: #444444;
 }
 
 .info-btn {
@@ -310,4 +391,31 @@ legend {
 
 .info-btn:hover {
     background-color: #e0e0e0;
+}
+
+/* ==========================================
+   6. Pied de page
+   ========================================== */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
 }

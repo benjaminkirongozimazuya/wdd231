@@ -1,142 +1,8 @@
 /* ==========================================
-   1. Styles globaux et de base (Mobile First)
-   ========================================== */
-
-/* ==========================================
-   Styles de la section Hero
-   ========================================== */
-.hero {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2.5rem 1.5rem;
-    align-items: center;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin: 1rem 0;
-}
-
-.hero-content {
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333333;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: #666666;
-}
-
-.hero-image-container {
-    width: 100%;
-}
-
-.hero-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: block;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.hero .cta-button {
-    display: inline-block;
-    background-color: #ff6b6b;
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.hero .cta-button:hover {
-    background-color: #fa5252;
-}
-
-.secondary-btn {
-    background-color: transparent !important;
-    border: 2px solid #ff6b6b;
-    color: #ff6b6b !important;
-}
-
-.secondary-btn:hover {
-    background-color: #ff6b6b !important;
-    color: #fff !important;
-}
-
-/* Section des avantages (Why Choose Us) */
-.info-section {
-    padding: 3rem 1rem;
-    text-align: center;
-}
-
-.info-section h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.benefit-card {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.benefit-card:hover {
-    transform: translateY(-5px);
-}
-
-.benefit-card h3 {
-    margin-bottom: 0.75rem;
-    color: #ff6b6b;
-}
-
-/* Grille pour le Chef's Special (Vidéo + Photo Kolwezi) - Mobile */
-.chef-special-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.chef-special-grid .media-item,
-.special-video,
-.special-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-}
-
-
-/* ==========================================
-   2. Media Queries pour les écrans larges (Desktop >= 768px)
+   Media Queries pour écrans larges (>= 768px)
    ========================================== */
 @media (min-width: 768px) {
-    /* Navigation burger */
+    /* Navigation burger masquée sur grand écran */
     #menu-button {
         display: none;
     }
@@ -156,12 +22,12 @@
         border-radius: 4px;
     }
 
-    /* Section Hero (Côte à côte) */
+    /* Section Hero en disposition horizontale */
     .hero {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 4rem;
+        padding: 3rem;
         gap: 3rem;
     }
 
@@ -170,7 +36,7 @@
         text-align: left;
     }
 
-    .hero h1 {
+    .hero-content h1 {
         font-size: 2.5rem;
     }
 
@@ -182,16 +48,22 @@
         justify-content: flex-start;
     }
 
-    /* Grille pour les cartes d'établissements */
+    /* Grille du répertoire et des avantages */
     #eatery-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
     }
 
-    /* Grille des avantages (3 colonnes) */
     .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Grille du formulaire et de la mise en page */
+    .form-layout-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
     }
 
     /* Chef's Special (Vidéo à gauche, Photo de Kolwezi à droite) */
