@@ -419,3 +419,15 @@ footer a:hover {
     margin-top: 0.8rem;
     font-size: 1.2rem;
 }
+
+.social-icons img {
+    width: 32px;   /* Ajustez cette valeur selon vos préférences (ex: 24px, 28px, 32px) */
+    height: 32px;  /* Garde l'icône carrée et bien proportionnée */
+    object-fit: contain;
+}
+
+.footer-social img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
