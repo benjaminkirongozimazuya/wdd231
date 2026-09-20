@@ -12,15 +12,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 2. Menu de navigation responsive (Menu Burger)
-    const menuButton = document.getElementById('menu-button');
-    const menuList = document.getElementById('menu-list');
+const menuButton = document.getElementById('menu-button');
+const menuList = document.getElementById('menu-list');
 
-    if (menuButton && menuList) {
-        menuButton.addEventListener('click', () => {
-            menuList.classList.toggle('open');
-            menuButton.classList.toggle('open');
-        });
-    }
+if (menuButton && menuList) {
+    menuButton.addEventListener('click', () => {
+        menuList.classList.toggle('open');
+        menuButton.classList.toggle('open');
+        
+        // Change le symbole textuel du bouton au clic
+        if (menuList.classList.contains('open')) {
+            menuButton.innerHTML = '&#10005;'; // Code pour la croix (✕)
+        } else {
+            menuButton.innerHTML = '&#9776;'; // Code pour les barres (☰)
+        }
+    });
+}
 
     // 3. Chargement et affichage des données du répertoire si le conteneur est présent
     const eateryContainer = document.getElementById('eatery-container');

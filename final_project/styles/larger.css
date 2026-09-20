@@ -1,10 +1,21 @@
 /* ==========================================
+   Styles de base du bouton menu mobile
+   ========================================== */
+#menu-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: inherit; /* S'adapte à la couleur de votre header */
+}
+
+/* ==========================================
    Media Queries pour écrans larges (>= 768px)
    ========================================== */
 @media (min-width: 768px) {
-    /* Navigation burger masquée sur grand écran */
+    /* Masquer le bouton sur grand écran */
     #menu-button {
-        display: none;
+        display: none; 
     }
 
     nav ul {
@@ -66,7 +77,7 @@
         align-items: start;
     }
 
-    /* Chef's Special (Vidéo à gauche, Photo de Kolwezi à droite) */
+    /* Chef's Special */
     .chef-special-grid {
         flex-direction: row;
         justify-content: space-between;
