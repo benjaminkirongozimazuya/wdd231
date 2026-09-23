@@ -34,7 +34,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    position: relative;
+    position: relative; /* Indispensable pour servir de repère au bouton */
 }
 
 .logo-container {
@@ -52,9 +52,13 @@ header {
 #menu-button {
     background: none;
     border: none;
-    color: var(--white);
     font-size: 1.8rem;
     cursor: pointer;
+    color: inherit;
+    position: absolute;
+    right: 1.5rem; /* Colle le bouton tout à fait à droite de l'en-tête */
+    top: 50%;
+    transform: translateY(-50%); /* Centre parfaitement le bouton verticalement */
 }
 
 nav ul {
