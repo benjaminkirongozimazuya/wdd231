@@ -7,14 +7,17 @@ function displayPlaces() {
     if (!container) return;
     container.innerHTML = "";
     
-    places.forEach(place => {
+    places.forEach((place, index) => {
         const card = document.createElement("section");
         card.classList.add("card");
+        
+        // La première image (index 0) charge en "eager", les autres en "lazy"
+        const imageLoading = index === 0 ? "eager" : "lazy";
         
         card.innerHTML = `
     <h2>${place.name}</h2>
     <figure>
-        <img src="images/${place.photo}" alt="${place.name}" width="300" height="160" loading="lazy">
+        <img src="images/${place.photo}" alt="${place.name}" width="300" height="160" loading="${imageLoading}">
     </figure>
     <address>${place.address}</address>
     <p>${place.description}</p>
