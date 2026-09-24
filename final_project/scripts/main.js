@@ -85,7 +85,7 @@ if (menuButton && menuList) {
             displayEateries(favoriteEateries, favoritesContainer);
         } else {
             favoritesContainer.innerHTML = `
-                <p id="no-favorites-msg">Aucun favori enregistré pour le moment. Parcourez notre <a href="directory.html">répertoire</a> pour en ajouter !</p>
+                <p id="no-favorites-msg">No favorites saved yet. Browse our <a href="directory.html">directory</a> to add some!</p>
             `;
         }
     }
