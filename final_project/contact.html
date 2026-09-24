@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickBite Express - Application Form</title>
-    <meta name="description" content="Apply for QuickBite Express partnership or get in touch with our team.">
+    <title>QuickBite Express - Contact Us</title>
+    <meta name="description" content="Get in touch with the QuickBite Express team for any questions or feedback.">
     <meta name="author" content="Benjamin Kirongozi Mazuya">
 
     <!-- Google Fonts -->
@@ -40,130 +40,89 @@
         </nav>
     </header>
 
-    <!-- Main Content Layout (Two Columns) -->
-    <main class="form-layout-container">
-        
-        <!-- Colonne de gauche : Le Formulaire -->
+    <!-- Main Content -->
+    <main class="contact-main-container">
         <section class="form-wrapper">
-            <h2>Partnership Application Form</h2>
+            <h2>Get in Touch With Us</h2>
+            <p>Have questions, feedback, or want to send us a message? Fill out the form below!</p>
+            
             <form action="form-action.html" method="GET" class="styled-form">
                 <fieldset>
-                    <legend>Personal & Professional Information</legend>
+                    <legend>Contact Information</legend>
 
-                    <div class="form-group">
-                        <label for="firstname">First Name *</label>
-                        <input type="text" id="firstname" name="firstname" required>
-                    </div>
+                    <!-- First Name -->
+                    <label class="form-label">
+                        First Name *
+                        <input type="text" name="firstname" required autocomplete="given-name">
+                    </label>
 
-                    <div class="form-group">
-                        <label for="lastname">Last Name *</label>
-                        <input type="text" id="lastname" name="lastname" required>
-                    </div>
+                    <!-- Last Name -->
+                    <label class="form-label">
+                        Last Name *
+                        <input type="text" name="lastname" required autocomplete="family-name">
+                    </label>
 
-                    <div class="form-group">
-                        <label for="orgtitle">Organizational Title</label>
-                        <input type="text" id="orgtitle" name="orgtitle">
-                    </div>
+                    <!-- Address -->
+                    <label class="form-label">
+                        Address *
+                        <input type="text" name="address" required autocomplete="street-address">
+                    </label>
 
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="example@domain.com">
-                    </div>
+                    <!-- Telephone -->
+                    <label class="form-label">
+                        Telephone *
+                        <input type="tel" name="phone" required autocomplete="tel" placeholder="(+243) ...">
+                    </label>
 
-                    <div class="form-group">
-                        <label for="phone">Mobile Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
+                    <!-- Email Address -->
+                    <label class="form-label">
+                        Email Address *
+                        <input type="email" name="email" required placeholder="example@domain.com" autocomplete="email">
+                    </label>
 
-                    <div class="form-group">
-                        <label for="bizname">Business / Organization Name *</label>
-                        <input type="text" id="bizname" name="bizname" required>
-                    </div>
+                    <!-- Subject -->
+                    <label class="form-label">
+                        Subject *
+                        <input type="text" name="subject" required>
+                    </label>
 
-                    <div class="form-group">
-                        <label for="membership">Partnership Level *</label>
-                        <select id="membership" name="membership" required>
-                            <option value="" disabled selected>Select a partnership level</option>
-                            <option value="np">NP Partner (Non-Profit)</option>
-                            <option value="bronze">Bronze Partner</option>
-                            <option value="silver">Silver Partner</option>
-                            <option value="gold">Gold Partner</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Business Description</label>
-                        <textarea id="description" name="description" rows="4"></textarea>
-                    </div>
+                    <!-- Message -->
+                    <label class="form-label">
+                        Your Message *
+                        <textarea name="message" rows="5" required placeholder="Type your message here..."></textarea>
+                    </label>
                 </fieldset>
 
-                <button type="submit" class="submit-btn">Apply for Partnership</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </section>
-
-        <!-- Colonne de droite : Les cartes d'information (Cards) -->
-        <aside class="info-cards-wrapper">
-            <div class="info-card">
-                <h3>NP Partnership</h3>
-                <p>Designed for non-profit organizations with no partnership fee.</p>
-                <button type="button" class="info-btn">Learn More</button>
-            </div>
-
-            <div class="info-card">
-                <h3>Bronze Partnership</h3>
-                <p>Basic networking and community event access.</p>
-                <button type="button" class="info-btn">Learn More</button>
-            </div>
-
-            <div class="info-card">
-                <h3>Silver Partnership</h3>
-                <p>Enhanced benefits and training discounts.</p>
-                <button type="button" class="info-btn">Learn More</button>
-            </div>
-
-            <div class="info-card">
-                <h3>Gold Partnership</h3>
-                <p>Maximum visibility, spotlight positions, and VIP perks.</p>
-                <button type="button" class="info-btn">Learn More</button>
-            </div>
-        </aside>
-
     </main>
 
     <!-- Footer -->
     <footer>
-    <div class="footer-col">
-        <p><strong>QuickBite Express</strong></p>
-        <p>48, Av. Kalenga, Q/Kamanyola</p>
-        <p>Kolwezi, Lualaba 999</p>
-        <p>kirongozinotes1@gmail.com</p>
-        <p>(+243) 89-09-248-24</p>
-    </div>
-    <div class="footer-social">
-        <a href="https://www.youtube.com/@benjaminkirongozimazya" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <img src="images/social.png" alt="QuickBite Express YouTube Channel">
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <img src="images/twitter.png" alt="QuickBite Express Twitter Feed">
-        </a>
-        <a href="https://www.linkedin.com/in/benjamin-kirongozi-mazuya-806a2926a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <img src="images/linkedin.png" alt="Benjamin Kirongozi Mazuya LinkedIn Profile">
-        </a>
-    </div>
-    <div class="footer-col">
-        <p>WDD231 Class Project</p>
-        <p>Benjamin Kirongozi Mazuya</p>
-        <p>&copy; 2026 QuickBite Express</p>
-    </div>
-</footer>
-    <!-- Modal Dialog pour afficher les détails des niveaux de partenariat -->
-<dialog id="partnership-modal">
-    <div class="modal-content">
-        <button id="close-modal" aria-label="Close modal">&times;</button>
-        <div id="modal-body">
-            <!-- Le contenu sera injecté dynamiquement ici -->
+        <div class="footer-col">
+            <p><strong>QuickBite Express</strong></p>
+            <p>48, Av. Kalenga, Q/Kamanyola</p>
+            <p>Kolwezi, Lualaba 999</p>
+            <p>kirongozinotes1@gmail.com</p>
+            <p>(+243) 89-09-248-24</p>
         </div>
-    </div>
-</dialog>
+        <div class="footer-social">
+            <a href="https://www.youtube.com/@benjaminkirongozimazya" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="images/social.png" alt="QuickBite Express YouTube Channel">
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <img src="images/twitter.png" alt="QuickBite Express Twitter Feed">
+            </a>
+            <a href="https://www.linkedin.com/in/benjamin-kirongozi-mazuya-806a2926a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="images/linkedin.png" alt="Benjamin Kirongozi Mazuya LinkedIn Profile">
+            </a>
+        </div>
+        <div class="footer-col">
+            <p>WDD231 Class Project</p>
+            <p>Benjamin Kirongozi Mazuya</p>
+            <p>&copy; 2026 QuickBite Express</p>
+        </div>
+    </footer>
 </body>
 </html>

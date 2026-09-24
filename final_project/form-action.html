@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickBite Express - Application Summary</title>
-    <meta name="description" content="Confirmation and display page for partnership application data on QuickBite Express.">
+    <title>QuickBite Express - Message Summary</title>
+    <meta name="description" content="Confirmation and display page for contact message data on QuickBite Express.">
     <meta name="author" content="Benjamin Kirongozi Mazuya">
 
     <!-- Google Fonts -->
@@ -18,6 +18,9 @@
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
+
+    <!-- JavaScript ES Module -->
+    <script type="module" src="scripts/main.js" defer></script>
 </head>
 <body>
     <!-- Site Header -->
@@ -26,6 +29,7 @@
             <img src="images/quickbitelogo.png" alt="QuickBite Express Logo" width="50" height="50" loading="lazy">
             <span class="site-title">QuickBite Express</span>
         </div>
+        <button id="menu-button" aria-label="Open navigation menu">&#9776;</button>
         <nav>
             <ul id="menu-list">
                 <li><a href="index.html">Home</a></li>
@@ -37,17 +41,18 @@
     </header>
 
     <!-- Main Content -->
-    <main>
-        <section class="form-action-header">
-            <h1>Thank You for Your Application!</h1>
-            <p>Here is a summary of the information you submitted to us:</p>
-        </section>
+    <main class="contact-main-container">
+        <section class="form-wrapper">
+            <div class="form-action-header">
+                <h2>Thank You for Reaching Out!</h2>
+                <p>Here is a summary of the information you sent us:</p>
+            </div>
 
-        <section class="card" style="padding: 2rem; max-width: 600px; margin: 0 auto;">
-            <div id="form-results" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div id="form-results" class="results-content">
                 <!-- Form data will be dynamically injected here -->
             </div>
-            <div style="margin-top: 2rem; text-align: center;">
+
+            <div class="form-action-footer">
                 <a href="index.html" class="cta-button">Back to Home</a>
             </div>
         </section>
@@ -60,26 +65,24 @@
 
         const firstname = urlParams.get('firstname');
         const lastname = urlParams.get('lastname');
-        const orgtitle = urlParams.get('orgtitle');
-        const email = urlParams.get('email');
+        const address = urlParams.get('address');
         const phone = urlParams.get('phone');
-        const bizname = urlParams.get('bizname');
-        const membership = urlParams.get('membership');
-        const description = urlParams.get('description');
+        const email = urlParams.get('email');
+        const subject = urlParams.get('subject');
+        const message = urlParams.get('message');
 
-        if (firstname || email || bizname) {
+        if (firstname || email || subject) {
             resultsContainer.innerHTML = `
                 <p><strong>First Name:</strong> ${escapeHtml(firstname || 'Not provided')}</p>
                 <p><strong>Last Name:</strong> ${escapeHtml(lastname || 'Not provided')}</p>
-                <p><strong>Organizational Title:</strong> ${escapeHtml(orgtitle || 'Not provided')}</p>
+                <p><strong>Address:</strong> ${escapeHtml(address || 'Not provided')}</p>
+                <p><strong>Telephone:</strong> ${escapeHtml(phone || 'Not provided')}</p>
                 <p><strong>Email Address:</strong> ${escapeHtml(email || 'Not provided')}</p>
-                <p><strong>Mobile Phone Number:</strong> ${escapeHtml(phone || 'Not provided')}</p>
-                <p><strong>Business / Organization Name:</strong> ${escapeHtml(bizname || 'Not provided')}</p>
-                <p><strong>Partnership Level:</strong> ${escapeHtml(membership || 'Not provided')}</p>
-                <p><strong>Business Description:</strong> ${escapeHtml(description || 'Not provided')}</p>
+                <p><strong>Subject:</strong> ${escapeHtml(subject || 'Not provided')}</p>
+                <p><strong>Message:</strong> ${escapeHtml(message || 'Not provided')}</p>
             `;
         } else {
-            resultsContainer.innerHTML = `<p>No form data received. Please submit the form from the <a href="contact.html">contact page</a>.</p>`;
+            resultsContainer.innerHTML = `<p class="no-data">No message data received. Please submit the form from the <a href="contact.html">contact page</a>.</p>`;
         }
 
         // Utility function for basic XSS protection
@@ -97,8 +100,29 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; <span id="current-year">2026</span> QuickBite Express. All rights reserved.</p>
-        <p><a href="attributions.html">Source and Image Attributions</a></p>
+        <div class="footer-col">
+            <p><strong>QuickBite Express</strong></p>
+            <p>48, Av. Kalenga, Q/Kamanyola</p>
+            <p>Kolwezi, Lualaba 999</p>
+            <p>kirongozinotes1@gmail.com</p>
+            <p>(+243) 89-09-248-24</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.youtube.com/@benjaminkirongozimazya" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="images/social.png" alt="QuickBite Express YouTube Channel">
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <img src="images/twitter.png" alt="QuickBite Express Twitter Feed">
+            </a>
+            <a href="https://www.linkedin.com/in/benjamin-kirongozi-mazuya-806a2926a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="images/linkedin.png" alt="Benjamin Kirongozi Mazuya LinkedIn Profile">
+            </a>
+        </div>
+        <div class="footer-col">
+            <p>WDD231 Class Project</p>
+            <p>Benjamin Kirongozi Mazuya</p>
+            <p>&copy; 2026 QuickBite Express</p>
+        </div>
     </footer>
 </body>
 </html>
