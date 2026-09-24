@@ -21,57 +21,72 @@
     font-weight: bold;
 }
 
-/* --- Grille et Cartes --- */
+/* --- Grille principale --- */
 .discover-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
+/* ==========================================================
+   LAYOUT 1 : MOBILE (< 768px) - Named Grid Areas
+   Ordre : Titre -> Adresse -> Image -> Description -> Bouton
+   ========================================================== */
 .discover-grid .card {
     background: #e6e6e6;
     border: 1px solid #b5b5b5;
     border-radius: 6px;
     padding: 1rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "title"
+        "address"
+        "img"
+        "desc"
+        "btn";
+    gap: 0.6rem;
 }
 
 .discover-grid .card h2 {
+    grid-area: title;
     font-size: 1.15rem;
     text-align: center;
-    margin: 0 0 0.2rem 0;
+    margin: 0;
     color: #111;
 }
 
 .discover-grid .card address {
+    grid-area: address;
     font-style: italic;
     text-align: center;
     color: #555;
     font-size: 0.85rem;
-    margin-bottom: 0.5rem;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-}
-
-.discover-grid .card p {
-    font-size: 0.85rem;
-    color: #333;
-    line-height: 1.4;
-    margin: 0 0 0.75rem 0;
-    flex-grow: 1;
+    padding-bottom: 0.4rem;
+    margin: 0;
 }
 
 .discover-grid img {
+    grid-area: img;
     width: 100%;
     height: 160px;
     object-fit: cover;
-    aspect-ratio: 15 / 8;
+    border-radius: 4px;
+}
+
+.discover-grid .card p {
+    grid-area: desc;
+    font-size: 0.85rem;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
 }
 
 .discover-grid .card button {
+    grid-area: btn;
     background-color: #717171;
     color: white;
     border: none;
@@ -81,14 +96,58 @@
     font-size: 0.85rem;
     font-weight: bold;
     text-align: center;
-    margin-top: auto;
+    justify-self: stretch;
 }
 
 .discover-grid .card button:hover {
     background-color: #555;
 }
 
-/* --- Media Queries spécifiques à Discover --- */
+
+/* ==========================================================
+   LAYOUT 2 : TABLETTE (768px à 1024px) - Named Grid Areas
+   Ordre : Image à gauche, texte et boutons à droite
+   ========================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .discover-main {
+        max-width: 800px;
+    }
+
+    .discover-grid .card {
+        grid-template-columns: 160px 1fr;
+        grid-template-areas: 
+            "img title"
+            "img address"
+            "img desc"
+            "img btn";
+        gap: 0.5rem 1rem;
+        align-items: center;
+    }
+
+    .discover-grid img {
+        height: 130px;
+    }
+
+    .discover-grid .card h2 {
+        text-align: left;
+    }
+
+    .discover-grid .card address {
+        text-align: left;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .discover-grid .card button {
+        justify-self: start;
+    }
+}
+
+
+/* ==========================================================
+   LAYOUT 3 : BUREAU / DESKTOP (> 1025px) - Named Grid Areas
+   Ordre : Image en haut -> Titre -> Description -> Adresse -> Bouton
+   ========================================================== */
 @media (min-width: 1025px) {
     .discover-main {
         max-width: 1100px;
@@ -96,6 +155,35 @@
 
     .discover-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .discover-grid .card {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "img"
+            "title"
+            "desc"
+            "address"
+            "btn";
+        text-align: center;
+    }
+
+    .discover-grid .card h2 {
+        text-align: center;
+    }
+
+    .discover-grid .card address {
+        text-align: center;
+        border-top: 1px solid #ccc;
+        border-bottom: none;
+        padding-top: 0.4rem;
+        margin-top: 0.2rem;
+    }
+
+    .discover-grid .card button {
+        justify-self: center;
+        width: auto;
+        padding: 0.5rem 1.2rem;
     }
 
     .discover-grid img {
@@ -107,6 +195,7 @@
         filter: brightness(1.05);
     }
 }
+
 
 /* --- Style de la boîte de dialogue native (Modale) --- */
 .place-modal {
@@ -140,6 +229,7 @@
     background-color: #555;
 }
 
+
 /* --- Mode Sombre spécifique à Discover --- */
 body.dark-mode .discover-grid .card {
     background: #1e1e1e;
@@ -154,6 +244,13 @@ body.dark-mode .discover-grid .card h2 {
 body.dark-mode .discover-grid .card address {
     color: #a0a0a0;
     border-bottom: 1px solid #444;
+}
+
+@media (min-width: 1025px) {
+    body.dark-mode .discover-grid .card address {
+        border-top: 1px solid #444;
+        border-bottom: none;
+    }
 }
 
 body.dark-mode .discover-grid .card p {
