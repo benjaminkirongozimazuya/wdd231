@@ -415,3 +415,27 @@ footer a:hover {
     display: block;
     object-fit: contain;
 }
+
+/* Assurer un ratio stable pour toutes les images des cartes pour éviter les sauts (CLS) */
+.eatery-card img, .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    aspect-ratio: 16 / 9; /* Force le navigateur à réserver l'espace proportionnellement */
+}
+
+/* Stabiliser le conteneur Hero pour qu'il ne décale pas le texte au chargement de l'image */
+.hero-image-container {
+    width: 100%;
+    aspect-ratio: 3 / 2; /* Réserve l'espace exact basé sur votre taille 600x400 */
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
