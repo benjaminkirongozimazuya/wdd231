@@ -5,47 +5,47 @@
 import { fetchEateries, displayEateries } from './api.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Gestion dynamique de l'année dans le pied de page
+    // 1. Dynamic year management in the footer
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // 2. Menu de navigation responsive (Menu Burger)
-const menuButton = document.getElementById('menu-button');
-const menuList = document.getElementById('menu-list');
+    // 2. Responsive navigation menu (Burger Menu)
+    const menuButton = document.getElementById('menu-button');
+    const menuList = document.getElementById('menu-list');
 
-if (menuButton && menuList) {
-    menuButton.addEventListener('click', () => {
-        menuList.classList.toggle('open');
-        menuButton.classList.toggle('open');
-        
-        // Change le symbole textuel du bouton au clic
-        if (menuList.classList.contains('open')) {
-            menuButton.innerHTML = '&#10005;'; // Code pour la croix (✕)
-        } else {
-            menuButton.innerHTML = '&#9776;'; // Code pour les barres (☰)
-        }
-    });
-}
+    if (menuButton && menuList) {
+        menuButton.addEventListener('click', () => {
+            menuList.classList.toggle('open');
+            menuButton.classList.toggle('open');
+            
+            // Change the button text symbol on click
+            if (menuList.classList.contains('open')) {
+                menuButton.innerHTML = '&#10005;'; // Code for cross (✕)
+            } else {
+                menuButton.innerHTML = '&#9776;'; // Code for bars (☰)
+            }
+        });
+    }
 
-    // 3. Chargement et affichage des données du répertoire si le conteneur est présent
+    // 3. Load and display directory data if the container is present
     const eateryContainer = document.getElementById('eatery-container');
     if (eateryContainer) {
         const eateries = await fetchEateries();
         displayEateries(eateries, eateryContainer);
     }
 
-    // 4. Section "Chef's Special" avec support vidéo et photo de Kolwezi pour Le Gourmet Kolwezien
+    // 4. "Chef's Special" section with video and Kolwezi photo support for Le Gourmet Kolwezien
     const chefSpecialCard = document.getElementById('chef-special-card');
     if (chefSpecialCard) {
         const eateries = await fetchEateries();
         if (eateries.length > 0) {
-            const special = eateries[0]; // Premier élément ou sélection spéciale
+            const special = eateries[0]; // First item or special selection
             
             let mediaContent = `<img src="${special.image}" alt="${special.name}" loading="lazy" width="300" height="200" class="special-img">`;
             
-            // Si c'est Le Gourmet Kolwezien, on affiche la vidéo à gauche et la photo de Kolwezi à droite
+            // If it's Le Gourmet Kolwezien, show the video on the left and the Kolwezi photo on the right
             if (special.name === "Le Gourmet Kolwezien") {
                 mediaContent = `
                     <div class="chef-special-grid">
@@ -56,7 +56,7 @@ if (menuButton && menuList) {
                             </video>
                         </div>
                         <div class="media-item">
-                            <img src="images/kolwezi-city.jpg" alt="Vue de la ville de Kolwezi" loading="lazy" width="300" height="200" class="special-img">
+                            <img src="images/kolwezi-city.jpg" alt="View of Kolwezi city" loading="lazy" width="300" height="200" class="special-img">
                         </div>
                     </div>
                 `;
@@ -67,14 +67,14 @@ if (menuButton && menuList) {
                 <div class="card-content">
                     <h3>${special.name} - Special Dish</h3>
                     <p><strong>Cuisine :</strong> ${special.cuisine}</p>
-                    <p><strong>Prix :</strong> ${special.price}</p>
-                    <p>Découvrez ce plat exceptionnel préparé avec passion au cœur de Kolwezi !</p>
+                    <p><strong>Price :</strong> ${special.price}</p>
+                    <p>Discover this exceptional dish prepared with passion in the heart of Kolwezi!</p>
                 </div>
             `;
         }
     }
 
-    // 5. Chargement et affichage des restaurants favoris
+    // 5. Load and display favorite restaurants
     const favoritesContainer = document.getElementById('favorites-container');
     if (favoritesContainer) {
         const eateries = await fetchEateries();
@@ -90,28 +90,20 @@ if (menuButton && menuList) {
         }
     }
 
-    // 6. Logique de la modale pour la page de contact / partenariat
+    // 6. Modal logic for information / contact pages
     const modal = document.getElementById('partnership-modal');
     const modalBody = document.getElementById('modal-body');
     const closeModalBtn = document.getElementById('close-modal');
     const learnMoreButtons = document.querySelectorAll('.info-btn');
 
-    const partnershipDetails = {
-        "NP Partnership": "Conçu pour les organisations à but non lucratif sans frais de partenariat. Profitez d'un référencement gratuit sur QuickBite Express.",
-        "Bronze Partnership": "Accès de base au réseau et aux événements communautaires. Idéal pour les petits restaurants locaux.",
-        "Silver Partnership": "Avantages améliorés et réductions sur les formations. Bénéficiez d'un meilleur positionnement dans les recherches.",
-        "Gold Partnership": "Visibilité maximale, positions phares et avantages VIP. Figurez en haut du répertoire avec un coup de projecteur mensuel."
-    };
-
     learnMoreButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             const card = event.target.closest('.info-card');
             const title = card.querySelector('h3').textContent;
-            const description = partnershipDetails[title] || "Informations détaillées bientôt disponibles.";
 
             modalBody.innerHTML = `
                 <h3>${title}</h3>
-                <p style="margin-top: 1rem; line-height: 1.6;">${description}</p>
+                <p style="margin-top: 1rem; line-height: 1.6;">Detailed information coming soon.</p>
             `;
 
             if (modal && typeof modal.showModal === 'function') {
