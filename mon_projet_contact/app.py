@@ -19,17 +19,47 @@ def init_db():
 
 init_db()
 
-# 2. Création d'un serveur web simple pour interagir avec la page HTML
-PORT = 8000
+# 2. Création d'un serveur web
+PORT = 8080
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == '/':
-            self.path = '/index.html'
-        return super().do_GET()
+        if self.path == '/' or self.path == '/index.html':
+            # On lit les contacts dans la base de données SQLite
+            conn = sqlite3.connect("contacts.db")
+            cursor = conn.cursor()
+            cursor.execute("SELECT nom, telephone FROM contacts")
+            contacts = cursor.fetchall()
+            conn.close()
+
+            # On génère la liste des contacts en HTML
+            contacts_html = ""
+            for contact in contacts:
+                contacts_html += f"<li><strong>{contact[0]}</strong> — {contact[1]}</li>"
+            
+            if not contacts_html:
+                contacts_html = "<li>Aucun contact pour le moment.</li>"
+
+            # On lit le fichier index.html et on y injecte nos contacts
+            try:
+                with open("index.html", "r", encoding="utf-8") as f:
+                    html_content = f.read()
+                
+                # Remplacement du texte de la liste par les vrais contacts de la base de données
+                html_content = html_content.replace("<!-- LISTE_CONTACTS -->", contacts_html)
+
+                # On envoie la page au navigateur
+                self.send_response(200)
+                self.send_header("Content-type", "text/html; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(html_content.encode("utf-8"))
+            except FileNotFoundError:
+                self.send_error(404, "Fichier index.html introuvable")
+        else:
+            return super().do_GET()
 
     def do_POST(self):
-        # Récupération des données envoyées depuis le formulaire web
+        # Récupération des données du formulaire
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length).decode('utf-8')
         params = urllib.parse.parse_qs(post_data)
@@ -45,7 +75,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             conn.commit()
             conn.close()
 
-        # Redirection vers la page d'accueil
+        # Redirection vers la page d'accueil pour voir le résultat
         self.send_response(303)
         self.send_header('Location', '/')
         self.end_headers()
