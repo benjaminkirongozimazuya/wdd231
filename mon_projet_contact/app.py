@@ -20,7 +20,7 @@ def init_db():
 init_db()
 
 # 2. Création d'un serveur web
-PORT = 8080
+PORT = 8081
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -40,12 +40,12 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             if not contacts_html:
                 contacts_html = "<li>Aucun contact pour le moment.</li>"
 
-            # On lit le fichier index.html et on y injecte nos contacts
+            # On lit le fichier benji.html et on y injecte nos contacts
             try:
                 with open("benji.html", "r", encoding="utf-8") as f:
                     html_content = f.read()
                 
-                # Remplacement du texte de la liste par les vrais contacts de la base de données
+                # Remplacement du texte de la liste par les vrais contacts
                 html_content = html_content.replace("<!-- LISTE_CONTACTS -->", contacts_html)
 
                 # On envoie la page au navigateur
@@ -54,7 +54,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(html_content.encode("utf-8"))
             except FileNotFoundError:
-                self.send_error(404, "Fichier index.html introuvable")
+                self.send_error(404, "Fichier benji.html introuvable")
         else:
             return super().do_GET()
 
@@ -75,12 +75,12 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             conn.commit()
             conn.close()
 
-        # Redirection vers la page d'accueil pour voir le résultat
+        # Redirection vers benji.html pour voir le résultat mis à jour
         self.send_response(303)
-        self.send_header('Location', '/')
+        self.send_header('Location', '/benji.html')
         self.end_headers()
 
 # Lancement du serveur
 with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
-    print(f"Serveur démarré ! Ouvrez http://localhost:{PORT} dans votre navigateur.")
+    print(f"Serveur démarré ! Ouvrez http://localhost:{PORT}/benji.html dans votre navigateur.")
     httpd.serve_forever()
