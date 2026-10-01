@@ -24,7 +24,7 @@ PORT = 8080
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == '/' or self.path == '/index.html':
+        if self.path == '/' or self.path == '/benji.html':
             # On lit les contacts dans la base de données SQLite
             conn = sqlite3.connect("contacts.db")
             cursor = conn.cursor()
@@ -42,7 +42,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
 
             # On lit le fichier index.html et on y injecte nos contacts
             try:
-                with open("index.html", "r", encoding="utf-8") as f:
+                with open("benji.html", "r", encoding="utf-8") as f:
                     html_content = f.read()
                 
                 # Remplacement du texte de la liste par les vrais contacts de la base de données
