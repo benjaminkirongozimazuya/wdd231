@@ -47,6 +47,33 @@ def add_equipement():
     conn.close()
 
     return jsonify({"message": "Équipement ajouté avec succès !"}), 201
+# API Route : Supprimer un équipement
+@app.route('/api/equipements/<int:id>', methods=['DELETE'])
+def delete_equipement(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM equipements WHERE id = %s;", (id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return jsonify({"message": "Équipement supprimé avec succès !"}), 200
+
+# API Route : Modifier un équipement
+@app.route('/api/equipements/<int:id>', methods=['PUT'])
+def update_equipement(id):
+    data = request.json
+    nom = data.get('nom')
+    quantite = data.get('quantite')
+    categorie = data.get('categorie')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    sql = "UPDATE equipements SET nom = %s, quantite = %s, categorie = %s WHERE id = %s;"
+    cursor.execute(sql, (nom, quantite, categorie, id))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return jsonify({"message": "Équipement mis à jour avec succès !"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
