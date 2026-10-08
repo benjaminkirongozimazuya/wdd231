@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='static')
 def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
-        port=3306,
+        port=3307,
         user="root",
         password="Kiro@weathers1",  # Remplacez par votre mot de passe MySQL
         database="magasin_db"
