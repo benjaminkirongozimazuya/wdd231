@@ -6,11 +6,12 @@ app = Flask(__name__, static_folder='static')
 # Configuration de la connexion MySQL
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         port=3306,
         user="root",
-        password="Kiro@weathers1",  # Remplacez par votre mot de passe MySQL
-        database="magasin_db"
+        password="Kiro@weathers1",
+        database="magasin_db",  # <-- La virgule était manquante ici !
+        use_pure=True
     )
 
 # Servir la page HTML principale
