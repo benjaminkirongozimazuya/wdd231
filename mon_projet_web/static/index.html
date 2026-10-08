@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion du Magasin - ITM 111</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <h1>Inventaire des Équipements</h1>
+
+  <!-- Formulaire d'ajout -->
+  <form id="add-form">
+    <h3>Ajouter un équipement</h3>
+    <input type="text" id="nom" placeholder="Nom de l'équipement" required>
+    <input type="number" id="quantite" placeholder="Quantité" required>
+    <input type="text" id="categorie" placeholder="Catégorie" required>
+    <button type="submit">Ajouter à la base de données</button>
+  </form>
+
+  <!-- Tableau d'affichage -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Quantité</th>
+        <th>Catégorie</th>
+      </tr>
+    </thead>
+    <tbody id="equipements-list">
+      <!-- Les données SQL injectées par script.js apparaîtront ici -->
+    </tbody>
+  </table>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
