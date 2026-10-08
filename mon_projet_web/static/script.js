@@ -4,8 +4,9 @@ const API_URL = '/api/equipements';
 async function fetchEquipements() {
   try {
     const response = await fetch(API_URL);
-    const data = await response.json();
+    if (!response.ok) throw new Error(`Erreur HTTP : ${response.status}`);
     
+    const data = await response.json();
     const tbody = document.getElementById('equipements-list');
     tbody.innerHTML = '';
     
@@ -27,7 +28,7 @@ async function fetchEquipements() {
         </td>
       `;
 
-      // Attacher les événements proprement en JS
+      // Attacher les événements aux boutons créés
       tr.querySelector('.btn-edit').addEventListener('click', () => editEquipement(item));
       tr.querySelector('.btn-delete').addEventListener('click', () => deleteEquipement(item.id));
 
@@ -49,14 +50,18 @@ if (addForm) {
     const categorie = document.getElementById('categorie').value;
 
     try {
-      await fetch(API_URL, {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nom, quantite: parseInt(quantite), categorie })
       });
 
-      addForm.reset();
-      fetchEquipements();
+      if (res.ok) {
+        addForm.reset();
+        await fetchEquipements(); // Attendre la fin du rechargement
+      } else {
+        alert("Erreur lors de l'ajout de l'équipement.");
+      }
     } catch (error) {
       console.error('Erreur lors de l\'ajout :', error);
     }
@@ -67,10 +72,15 @@ if (addForm) {
 async function deleteEquipement(id) {
   if (confirm("Voulez-vous vraiment supprimer cet équipement ?")) {
     try {
-      await fetch(`${API_URL}/${id}`, {
+      const res = await fetch(`${API_URL}/${id}`, {
         method: 'DELETE'
       });
-      fetchEquipements();
+
+      if (res.ok) {
+        await fetchEquipements(); // Attendre impérativement la confirmation du serveur
+      } else {
+        alert("Impossible de supprimer l'élément (Erreur serveur)");
+      }
     } catch (error) {
       console.error('Erreur lors de la suppression :', error);
     }
@@ -85,7 +95,7 @@ async function editEquipement(item) {
 
   if (nouveauNom !== null && nouvelleQuantite !== null && nouvelleCategorie !== null) {
     try {
-      await fetch(`${API_URL}/${item.id}`, {
+      const res = await fetch(`${API_URL}/${item.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -94,7 +104,12 @@ async function editEquipement(item) {
           categorie: nouvelleCategorie
         })
       });
-      fetchEquipements();
+
+      if (res.ok) {
+        await fetchEquipements(); // Attendre impérativement la mise à jour
+      } else {
+        alert("Impossible de modifier l'élément (Erreur serveur)");
+      }
     } catch (error) {
       console.error('Erreur lors de la modification :', error);
     }
