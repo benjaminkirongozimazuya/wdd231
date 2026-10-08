@@ -10,8 +10,8 @@ def get_db_connection():
         port=3306,
         user="root",
         password="Kiro@weathers1",
-        database="magasin_db",  # <-- La virgule était manquante ici !
-        use_pure=True
+        database="magasin_db",
+        auth_plugin="mysql_native_password"
     )
 
 # Servir la page HTML principale
@@ -47,6 +47,7 @@ def add_equipement():
     conn.close()
 
     return jsonify({"message": "Équipement ajouté avec succès !"}), 201
+
 # API Route : Supprimer un équipement
 @app.route('/api/equipements/<int:id>', methods=['DELETE'])
 def delete_equipement(id):
